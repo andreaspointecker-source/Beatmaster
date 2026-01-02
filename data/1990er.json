@@ -1,0 +1,220 @@
+[
+  {
+    "title": "Wind of Change",
+    "artist": "Scorpions",
+    "year": 1990,
+    "genre": "Rock",
+    "album": "Crazy World",
+    "youtubeId": "9XfhJ1c8-kM",
+    "startTime": 68,
+    "duration": 30,
+    "difficulty": "easy",
+    "tags": [
+      "90s",
+      "german",
+      "rock"
+    ],
+    "playCount": 0,
+    "verified": true,
+    "id": "fd3e3b88-0cfe-4b6c-8f7e-25c65ef2ef9f"
+  },
+  {
+    "title": "Enter Sandman",
+    "artist": "Metallica",
+    "year": 1991,
+    "genre": "Metal",
+    "album": "Metallica",
+    "youtubeId": "CD-E-LDc384",
+    "startTime": 65,
+    "duration": 30,
+    "difficulty": "hard",
+    "tags": [
+      "metal",
+      "90s"
+    ],
+    "playCount": 0,
+    "verified": true,
+    "id": "7390adea-e1cc-4169-acb7-28a56aea85bf"
+  },
+  {
+    "title": "Smells Like Teen Spirit",
+    "artist": "Nirvana",
+    "year": 1991,
+    "genre": "Grunge",
+    "album": "Nevermind",
+    "youtubeId": "hTWKbfoikeg",
+    "startTime": 12,
+    "duration": 30,
+    "difficulty": "medium",
+    "tags": [
+      "90s",
+      "rock"
+    ],
+    "playCount": 0,
+    "verified": true,
+    "id": "4dae1979-ae5e-4999-b840-b473e92e840a"
+  },
+  {
+    "title": "Bed of Roses",
+    "artist": "Bon Jovi",
+    "year": "1992",
+    "genre": "Rock",
+    "album": "Keep the Faith",
+    "youtubeId": "NvR60Wg9R7Q",
+    "startTime": 66,
+    "duration": 30,
+    "difficulty": "hard",
+    "tags": [
+      "90s",
+      "rock"
+    ],
+    "playCount": 0,
+    "verified": true,
+    "id": "a00fe968-4301-4e4d-8b1d-e0c366b28140"
+  },
+  {
+    "title": "Die Da!?!",
+    "artist": "Die Fantastischen Vier",
+    "year": "1992",
+    "genre": "Hip Hop",
+    "album": "4 gewinnt",
+    "youtubeId": "VUosAGDM8Sg",
+    "startTime": 20,
+    "duration": 30,
+    "difficulty": "medium",
+    "tags": [
+      "hiphop",
+      "german"
+    ],
+    "playCount": 0,
+    "verified": true,
+    "id": "d55b97f7-90c2-4780-a64c-8c062f604cd5"
+  },
+  {
+    "title": "Schrei nach Liebe",
+    "artist": "Die Ärzte",
+    "year": 1993,
+    "genre": "Punk Rock",
+    "album": "Die Bestie in Menschengestalt",
+    "youtubeId": "6X9CEi8wkBc",
+    "startTime": 19,
+    "duration": 30,
+    "difficulty": "medium",
+    "tags": [
+      "punk",
+      "german"
+    ],
+    "playCount": 0,
+    "verified": true,
+    "id": "72508f0f-172f-417e-b23a-f5ad667437c0"
+  },
+  {
+    "title": "Fields of Gold",
+    "artist": "Sting",
+    "year": 1993,
+    "genre": "Pop",
+    "album": "Ten Summoner's Tales",
+    "youtubeId": "KLVq0IAzh1A",
+    "startTime": 36,
+    "duration": 30,
+    "difficulty": "medium",
+    "tags": [
+      "90s",
+      "ballad"
+    ],
+    "playCount": 0,
+    "verified": true,
+    "id": "2941254e-9d5e-422c-9078-579e678f365d"
+  },
+  {
+    "title": "Shape of My Heart",
+    "artist": "Sting",
+    "year": 1993,
+    "genre": "Pop Rock",
+    "album": "Ten Summoner's Tales",
+    "youtubeId": "NlwIDxCjL-8",
+    "startTime": 48,
+    "duration": 30,
+    "difficulty": "hard",
+    "tags": [
+      "classic",
+      "90s"
+    ],
+    "playCount": 0,
+    "verified": true,
+    "id": "e6fe1ee9-40f0-4f28-9fe5-d4257a8e35a9"
+  },
+  {
+    "title": "Always",
+    "artist": "Bon Jovi",
+    "year": 1994,
+    "genre": "Rock",
+    "album": "Cross Road",
+    "youtubeId": "9BMwcO6_hyA",
+    "startTime": 54,
+    "duration": 30,
+    "difficulty": "medium",
+    "tags": [
+      "90s",
+      "rock"
+    ],
+    "playCount": 0,
+    "verified": true,
+    "id": "2f8191bc-576d-4db8-8efd-fd473e010d11"
+  },
+  {
+    "title": "Zombie",
+    "artist": "The Cranberries",
+    "year": 1994,
+    "genre": "Rock",
+    "album": "No Need to Argue",
+    "youtubeId": "6Ejga4kJUts",
+    "startTime": 62,
+    "duration": 30,
+    "difficulty": "medium",
+    "tags": [
+      "90s",
+      "rock"
+    ],
+    "playCount": 0,
+    "verified": true,
+    "id": "2a6c8867-2619-406a-aa3b-68c1e718d84d"
+  },
+  {
+    "title": "Wonderwall",
+    "artist": "Oasis",
+    "year": 1995,
+    "genre": "Britpop",
+    "album": "(What's the Story) Morning Glory?",
+    "youtubeId": "6hzrDeceEKc",
+    "startTime": 26,
+    "duration": 30,
+    "difficulty": "easy",
+    "tags": [
+      "90s",
+      "pop"
+    ],
+    "playCount": 0,
+    "verified": true,
+    "id": "58087706-641b-4af8-9a20-b163538a6503"
+  },
+  {
+    "title": "Du Hast",
+    "artist": "Rammstein",
+    "year": 1997,
+    "genre": "Metal",
+    "album": "Sehnsucht",
+    "youtubeId": "IGr7neTGIFI",
+    "startTime": 25,
+    "duration": 30,
+    "difficulty": "hard",
+    "tags": [
+      "metal",
+      "german",
+      "90s"
+    ],
+    "playCount": 0,
+    "verified": true,
+    "id": "541b5784-841d-45ac-baca-d9869c29f547"
+  }
+]

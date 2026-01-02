@@ -1,4 +1,5 @@
 import json
+from datetime import datetime
 from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 
@@ -16,6 +17,12 @@ class BeatMasterHandler(SimpleHTTPRequestHandler):
             return
         if self.path == "/api/songs/add":
             self.handle_song_add()
+            return
+        if self.path == "/api/songs/import":
+            self.handle_song_import()
+            return
+        if self.path == "/api/songs/delete":
+            self.handle_song_delete()
             return
 
         self.send_error(404, "Not found")
@@ -36,15 +43,30 @@ class BeatMasterHandler(SimpleHTTPRequestHandler):
         path.parent.mkdir(parents=True, exist_ok=True)
         path.write_text(json.dumps(data, indent=2, ensure_ascii=True) + "\n", encoding="utf-8")
 
+    def _read_all_song_files(self):
+        combined = []
+        for path in sorted(DATA_DIR.glob("*.json")):
+            try:
+                data = self._read_json(path)
+            except Exception:
+                continue
+            if not isinstance(data, list):
+                continue
+            source_name = path.name
+            for item in data:
+                if isinstance(item, dict):
+                    merged = dict(item)
+                    merged["__source"] = source_name
+                    combined.append(merged)
+        return combined
+
     def handle_song_list(self):
         try:
-            default_songs = self._read_json(DEFAULT_FILE)
-            added_songs = self._read_json(ADDED_FILE)
+            combined = self._read_all_song_files()
         except Exception:
             self.send_error(500, "Failed to read songs")
             return
 
-        combined = default_songs + added_songs
         self.send_response(200)
         self.send_header("Content-Type", "application/json")
         self.end_headers()
@@ -104,13 +126,6 @@ class BeatMasterHandler(SimpleHTTPRequestHandler):
             self.send_error(400, "Missing fields")
             return
 
-        try:
-            default_songs = self._read_json(DEFAULT_FILE)
-            added_songs = self._read_json(ADDED_FILE)
-        except Exception:
-            self.send_error(500, "Failed to read songs")
-            return
-
         def match_song(song):
             if (song.get("title") or "").strip() != original_title:
                 return False
@@ -121,7 +136,19 @@ class BeatMasterHandler(SimpleHTTPRequestHandler):
             return True
 
         updated = False
-        for collection, path in ((default_songs, DEFAULT_FILE), (added_songs, ADDED_FILE)):
+        try:
+            song_files = sorted(DATA_DIR.glob("*.json"))
+        except Exception:
+            self.send_error(500, "Failed to read songs")
+            return
+
+        for path in song_files:
+            try:
+                collection = self._read_json(path)
+            except Exception:
+                continue
+            if not isinstance(collection, list):
+                continue
             index = None
             for i, song in enumerate(collection):
                 if match_song(song):
@@ -154,6 +181,102 @@ class BeatMasterHandler(SimpleHTTPRequestHandler):
             break
 
         if not updated:
+            self.send_error(404, "Song not found in songs files")
+            return
+
+        self.send_response(200)
+        self.send_header("Content-Type", "application/json")
+        self.end_headers()
+        self.wfile.write(json.dumps({"success": True}).encode("utf-8"))
+
+    def handle_song_import(self):
+        try:
+            length = int(self.headers.get("Content-Length", "0"))
+            body = self.rfile.read(length).decode("utf-8")
+            payload = json.loads(body)
+        except Exception:
+            self.send_error(400, "Invalid JSON")
+            return
+
+        if isinstance(payload, dict) and isinstance(payload.get("songs"), list):
+            songs = payload["songs"]
+        else:
+            songs = payload
+
+        if not isinstance(songs, list):
+            self.send_error(400, "Payload must be a JSON array or {\"songs\": []}")
+            return
+
+        timestamp = datetime.now().strftime("%Y%m%d-%H%M%S")
+        filename = f"import-{timestamp}.json"
+        target = DATA_DIR / filename
+
+        try:
+            self._write_json(target, songs)
+        except Exception:
+            self.send_error(500, "Failed to write import file")
+            return
+
+        self.send_response(200)
+        self.send_header("Content-Type", "application/json")
+        self.end_headers()
+        self.wfile.write(json.dumps({"success": True, "file": filename}).encode("utf-8"))
+
+    def handle_song_delete(self):
+        try:
+            length = int(self.headers.get("Content-Length", "0"))
+            body = self.rfile.read(length).decode("utf-8")
+            payload = json.loads(body)
+        except Exception:
+            self.send_error(400, "Invalid JSON")
+            return
+
+        song_id = (payload.get("id") or "").strip()
+        title = (payload.get("title") or "").strip()
+        artist = (payload.get("artist") or "").strip()
+        year = payload.get("year")
+
+        if not song_id and (not title or not artist):
+            self.send_error(400, "Missing fields")
+            return
+
+        try:
+            song_files = sorted(DATA_DIR.glob("*.json"))
+        except Exception:
+            self.send_error(500, "Failed to read songs")
+            return
+
+        def match_song(song):
+            if song_id and str(song.get("id")) == song_id:
+                return True
+            if (song.get("title") or "").strip() != title:
+                return False
+            if (song.get("artist") or "").strip() != artist:
+                return False
+            if year is not None and str(song.get("year")) != str(year):
+                return False
+            return True
+
+        deleted = False
+        for path in song_files:
+            try:
+                collection = self._read_json(path)
+            except Exception:
+                continue
+            if not isinstance(collection, list):
+                continue
+            filtered = [song for song in collection if not match_song(song)]
+            if len(filtered) == len(collection):
+                continue
+            try:
+                self._write_json(path, filtered)
+            except Exception:
+                self.send_error(500, "Failed to write songs")
+                return
+            deleted = True
+            break
+
+        if not deleted:
             self.send_error(404, "Song not found in songs files")
             return
 

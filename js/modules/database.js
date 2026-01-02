@@ -33,6 +33,7 @@ const Database = {
       difficulty: songData.difficulty || 'medium',
       tags: Array.isArray(songData.tags) ? songData.tags : [],
       verified: !!songData.verified,
+      __source: songData.__source || 'added-songs.json',
       playCount: 0,
       createdAt: new Date().toISOString(),
       updatedAt: new Date().toISOString()
@@ -133,6 +134,7 @@ const Database = {
   deleteSong(id) {
     const songs = Storage.getSongs();
     const filteredSongs = songs.filter(s => s.id !== id);
+    const deletedSong = songs.find(s => s.id === id);
 
     if (filteredSongs.length === songs.length) {
       return false; // Song nicht gefunden
@@ -140,6 +142,9 @@ const Database = {
 
     if (Storage.saveSongs(filteredSongs)) {
       State.set('songs', filteredSongs);
+      if (deletedSong) {
+        this._persistDeletedSong(deletedSong);
+      }
       return true;
     }
 
@@ -401,6 +406,10 @@ const Database = {
         // Prüfe auf Duplikat (YouTube-ID)
         const ytId = this._extractYouTubeIdSafe(songData.youtubeId);
         if (existingYouTubeIds.has(ytId)) {
+          const existing = existingSongs.find(s => s.youtubeId === ytId);
+          if (existing && songData.__source && !existing.__source) {
+            existing.__source = songData.__source;
+          }
           result.duplicates++;
           return;
         }
@@ -425,11 +434,12 @@ const Database = {
           startTime: songData.startTime ? parseInt(songData.startTime) : 0,
           duration: songData.duration ? parseInt(songData.duration) : null,
           difficulty: songData.difficulty || 'medium',
-        tags: Array.isArray(songData.tags) ? songData.tags : [],
-        verified: !!songData.verified,
-        playCount: songData.playCount || 0,
-        createdAt: songData.createdAt || new Date().toISOString(),
-        updatedAt: new Date().toISOString()
+          tags: Array.isArray(songData.tags) ? songData.tags : [],
+          verified: !!songData.verified,
+          __source: songData.__source,
+          playCount: songData.playCount || 0,
+          createdAt: songData.createdAt || new Date().toISOString(),
+          updatedAt: new Date().toISOString()
         };
 
         existingSongs.push(song);
@@ -544,6 +554,23 @@ const Database = {
           originalArtist: originalSong.artist,
           originalYear: originalSong.year,
           updates: updatedSong
+        })
+      }).catch(() => {});
+    } catch {
+      // ignore
+    }
+  },
+
+  _persistDeletedSong(song) {
+    try {
+      fetch('/api/songs/delete', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          id: song.id,
+          title: song.title,
+          artist: song.artist,
+          year: song.year
         })
       }).catch(() => {});
     } catch {

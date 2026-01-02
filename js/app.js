@@ -66,6 +66,7 @@ const App = {
       'database': window.DatabaseManagerScreen,
       'game-setup': window.GameSetupScreen,
       'gameplay': window.GameplayScreen,
+      'playlist-test': window.PlaylistTestScreen,
       'scoreboard': window.ScoreboardScreen,
       'results': window.ResultsScreen,
       'settings': window.SettingsScreen,

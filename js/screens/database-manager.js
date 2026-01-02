@@ -1,4 +1,4 @@
-ï»¿// BeatMaster - Song Database Manager Screen
+// BeatMaster - Song Database Manager Screen
 
 class DatabaseManagerScreen {
   constructor() {
@@ -40,6 +40,18 @@ class DatabaseManagerScreen {
             <p class="text-sm text-white/70 mt-1">Verwalte deine Musik-Bibliothek</p>
           </div>
 
+          <!-- Import/Export Actions (Top) -->
+          <div class="flex flex-wrap justify-center gap-3 w-full mb-4">
+            <button class="flex-1 min-w-[140px] h-11 flex items-center justify-center gap-2 rounded-full border border-white/20 hover:bg-white/5 transition-colors" data-action="import">
+              <span class="material-symbols-outlined text-white/70" style="font-size: 20px;">file_upload</span>
+              <span class="text-xs font-bold text-white/70 uppercase tracking-wide">Importieren</span>
+            </button>
+            <button class="flex-1 min-w-[140px] h-11 flex items-center justify-center gap-2 rounded-full border border-white/20 hover:bg-white/5 transition-colors" data-action="export">
+              <span class="material-symbols-outlined text-white/70" style="font-size: 20px;">file_download</span>
+              <span class="text-xs font-bold text-white/70 uppercase tracking-wide">Exportieren</span>
+            </button>
+          </div>
+
           <!-- Search & Filter -->
           <div class="mb-3 flex flex-col gap-3">
             <label class="relative flex w-full items-center">
@@ -61,7 +73,8 @@ class DatabaseManagerScreen {
                 <option value="year">Jahr</option>
                 <option value="decade">Dekade</option>
                 <option value="difficulty">Schwierigkeit</option>
-                <option value="verified">GeprÃ¼ft</option>
+                <option value="source">Datei</option>
+                <option value="verified">Geprüft</option>
               </select>
               <select class="h-12 w-full rounded-full bg-surface-dark-input border border-white/10 px-4 text-sm font-semibold text-white focus:outline-none focus:ring-2 focus:ring-primary" data-action="filter-value">
                 <option value="all">Alle</option>
@@ -89,18 +102,6 @@ class DatabaseManagerScreen {
 
           <!-- Empty State -->
           ${this.songs.length === 0 ? this.renderEmptyState() : ''}
-
-          <!-- Import/Export Actions -->
-          <div class="flex flex-wrap justify-center gap-3 w-full mt-8">
-            <button class="flex-1 min-w-[140px] h-11 flex items-center justify-center gap-2 rounded-full border border-white/20 hover:bg-white/5 transition-colors" data-action="import">
-              <span class="material-symbols-outlined text-white/70" style="font-size: 20px;">file_upload</span>
-              <span class="text-xs font-bold text-white/70 uppercase tracking-wide">Importieren</span>
-            </button>
-            <button class="flex-1 min-w-[140px] h-11 flex items-center justify-center gap-2 rounded-full border border-white/20 hover:bg-white/5 transition-colors" data-action="export">
-              <span class="material-symbols-outlined text-white/70" style="font-size: 20px;">file_download</span>
-              <span class="text-xs font-bold text-white/70 uppercase tracking-wide">Exportieren</span>
-            </button>
-          </div>
         </main>
       </div>
     `;
@@ -109,6 +110,7 @@ class DatabaseManagerScreen {
     this.attachEventListeners();
     this.subscribeToState();
     this.updateFilterOptions();
+    this.syncSongsFromDataFolder();
   }
 
   loadSongs() {
@@ -138,7 +140,7 @@ class DatabaseManagerScreen {
           <div class="flex flex-wrap gap-2">
           ${song.genre ? `<span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-semibold bg-primary/10 text-primary">${Utils.escapeHTML(song.genre)}</span>` : ''}
           ${song.year ? `<span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-semibold bg-white/10 text-white/70">${song.year}</span>` : ''}
-          ${song.verified ? `<span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-semibold bg-emerald-500/20 text-emerald-300">GeprÃ¼ft</span>` : ''}
+          ${song.verified ? `<span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-semibold bg-emerald-500/20 text-emerald-300">Geprüft</span>` : ''}
         </div>
       </div>
     `).join('');
@@ -373,7 +375,7 @@ class DatabaseManagerScreen {
     State.set('playlistTestIndex', 0);
     State.set('playlistTestSource', this.filterType);
 
-    App.navigate('gameplay');
+    App.navigate('playlist-test');
   }
 
   getAllTags() {
@@ -420,13 +422,15 @@ class DatabaseManagerScreen {
       const reader = new FileReader();
       reader.onload = (event) => {
         try {
-          const result = Database.importSongs(event.target.result);
+          const parsed = JSON.parse(event.target.result);
+          const result = Database.importSongs(parsed);
           if (result.success) {
             this.loadSongs();
             this.applyFilters();
             this.updateFilterOptions();
             this.updateSongList();
             App.showNotification(`${result.imported} Songs importiert!`, 'success');
+            this.persistImportToServer(parsed);
           } else {
             App.showNotification('Import fehlgeschlagen', 'error');
           }
@@ -492,8 +496,11 @@ class DatabaseManagerScreen {
         filtered = filtered.filter(song => (song.difficulty || '').toLowerCase() === value);
       }
       if (this.filterType === 'verified') {
-        const wantsVerified = value === 'geprÃ¼ft';
+        const wantsVerified = value === 'geprüft';
         filtered = filtered.filter(song => (song.verified === true) === wantsVerified);
+      }
+      if (this.filterType === 'source') {
+        filtered = filtered.filter(song => (song.__source || '') === this.filterValue);
       }
     }
 
@@ -546,7 +553,11 @@ class DatabaseManagerScreen {
       return Array.from(diffs).sort();
     }
     if (type === 'verified') {
-      return ['geprÃ¼ft', 'ungeprÃ¼ft'];
+      return ['geprüft', 'ungeprüft'];
+    }
+    if (type === 'source') {
+      const sources = new Set(this.songs.map(song => song.__source).filter(Boolean));
+      return Array.from(sources).sort((a, b) => a.localeCompare(b));
     }
     return [];
   }
@@ -589,10 +600,67 @@ class DatabaseManagerScreen {
       this.unsubscribeSongs = null;
     }
   }
+
+  async syncSongsFromDataFolder() {
+    try {
+      const response = await fetch('/api/songs/all', { cache: 'no-cache' });
+      if (!response.ok) return;
+      const data = await response.json();
+      const result = Database.importSongs(data);
+      if (result.success && result.imported > 0) {
+        this.loadSongs();
+        this.applyFilters();
+        this.updateFilterOptions();
+        this.updateSongList();
+      }
+    } catch (error) {
+      // Server ggf. nicht erreichbar - keine UI-Fehlermeldung noetig
+      console.warn('Song sync failed:', error);
+    }
+  }
+
+  async persistImportToServer(data) {
+    try {
+      const response = await fetch('/api/songs/import', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+      });
+      if (!response.ok) {
+        throw new Error('Import file could not be created');
+      }
+      const result = await response.json();
+      if (result && result.file) {
+        this.applySourceToSongs(data, result.file);
+        App.showNotification(`Import gespeichert: ${result.file}`, 'success');
+      }
+    } catch (error) {
+      App.showNotification('Import konnte nicht im data-Ordner gespeichert werden', 'warning');
+    }
+  }
+
+  applySourceToSongs(data, sourceFile) {
+    const songs = Array.isArray(data) ? data : (data && data.songs ? data.songs : []);
+    if (!Array.isArray(songs) || songs.length === 0) return;
+
+    const stored = Storage.getSongs() || [];
+    const updated = stored.map(song => {
+      const match = songs.find(item => {
+        const ytId = Utils.extractYouTubeId(item.youtubeId || '') || (item.youtubeId || '');
+        return ytId && ytId === song.youtubeId;
+      });
+      if (match && !song.__source) {
+        return { ...song, __source: sourceFile };
+      }
+      return song;
+    });
+
+    Storage.saveSongs(updated);
+    State.set('songs', updated);
+  }
 }
 
 window.DatabaseManagerScreen = DatabaseManagerScreen;
-
 
 
 

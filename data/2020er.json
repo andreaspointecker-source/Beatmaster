@@ -1,0 +1,1820 @@
+[
+  {
+    "title": "Levitating",
+    "artist": "Dua Lipa",
+    "year": "2020",
+    "genre": "Pop",
+    "album": "Future Nostalgia",
+    "youtubeId": "TUVcZfQe-Kw",
+    "startTime": 44,
+    "duration": 30,
+    "difficulty": "easy",
+    "tags": [
+      "modern",
+      "pop"
+    ],
+    "playCount": 0,
+    "verified": true,
+    "id": "f46524fa-17f3-4962-ab20-859aab942fd7"
+  },
+  {
+    "title": "Heat Waves",
+    "artist": "Glass Animals",
+    "year": 2020,
+    "genre": "Indie Pop",
+    "album": "Dreamland",
+    "youtubeId": "mRD0-GxqHVo",
+    "startTime": 38,
+    "duration": 30,
+    "difficulty": "easy",
+    "tags": [
+      "modern",
+      "indie"
+    ],
+    "playCount": 0,
+    "verified": true,
+    "id": "c500791c-ed4a-481e-a677-1ecc07bbb07a"
+  },
+  {
+    "title": "Montero",
+    "artist": "Lil Nas X",
+    "year": 2021,
+    "genre": "Pop",
+    "album": "Montero",
+    "youtubeId": "6swmTBVI83k",
+    "startTime": 22,
+    "duration": 30,
+    "difficulty": "medium",
+    "tags": [
+      "modern",
+      "pop"
+    ],
+    "playCount": 0,
+    "verified": true,
+    "id": "55dc1364-f7fc-40f9-aadd-8a5166059cbc"
+  },
+  {
+    "title": "Drivers License",
+    "artist": "Olivia Rodrigo",
+    "year": "2021",
+    "genre": "Pop",
+    "album": "SOUR",
+    "youtubeId": "ZmDBbnmKpqQ",
+    "startTime": 52,
+    "duration": 30,
+    "difficulty": "medium",
+    "tags": [
+      "modern",
+      "pop"
+    ],
+    "playCount": 0,
+    "verified": true,
+    "id": "f60e00af-acb3-40fe-9821-8ac46490a378"
+  },
+  {
+    "title": "Stay",
+    "artist": "The Kid LAROI & Justin Bieber",
+    "year": "2021",
+    "genre": "Pop",
+    "album": "F*CK LOVE 3",
+    "youtubeId": "kTJczUoc26U",
+    "startTime": 41,
+    "duration": 30,
+    "difficulty": "easy",
+    "tags": [
+      "modern",
+      "pop"
+    ],
+    "playCount": 0,
+    "verified": true,
+    "id": "db7e4d45-51aa-4feb-8711-bf4e8b7cccef"
+  },
+  {
+    "title": "As It Was",
+    "artist": "Harry Styles",
+    "year": 2022,
+    "genre": "Pop",
+    "album": "Harry's House",
+    "youtubeId": "H5v3kku4y6Q",
+    "startTime": 14,
+    "duration": 30,
+    "difficulty": "easy",
+    "tags": [
+      "modern",
+      "pop"
+    ],
+    "playCount": 0,
+    "verified": true,
+    "id": "f3467454-36f0-4a52-965e-976c1ad1db42"
+  },
+  {
+    "title": "Flowers",
+    "artist": "Miley Cyrus",
+    "year": 2023,
+    "genre": "Pop",
+    "album": "Endless Summer Vacation",
+    "youtubeId": "G7KNmW9a75Y",
+    "startTime": 36,
+    "duration": 30,
+    "difficulty": "easy",
+    "tags": [
+      "modern",
+      "pop"
+    ],
+    "playCount": 0,
+    "verified": true,
+    "id": "e72108f0-df1b-46ce-8f28-4d5d3448122c"
+  },
+  {
+    "title": "Komet",
+    "artist": "Udo Lindenberg & Apache 207",
+    "year": 2023,
+    "genre": "Pop",
+    "album": "Komet",
+    "youtubeId": "0nYDnTTJgFI",
+    "startTime": 30,
+    "duration": 30,
+    "difficulty": "easy",
+    "tags": [
+      "modern",
+      "german"
+    ],
+    "playCount": 0,
+    "verified": true,
+    "id": "b67373a3-6d17-46ef-8581-fb76491098b7"
+  },
+  {
+    "title": "A Bar Song (Tipsy)",
+    "artist": "Shaboozey",
+    "year": 2024,
+    "genre": "Pop",
+    "album": "",
+    "youtubeId": "t7bQwwqW-Hc",
+    "startTime": 40,
+    "duration": 30,
+    "difficulty": "easy",
+    "tags": [
+      "modern",
+      "2020s"
+    ],
+    "playCount": 0,
+    "verified": true,
+    "id": "e04d9860-5c63-4295-8a2d-65eee1bae245"
+  },
+  {
+    "title": "Stumblin' In",
+    "artist": "CYRIL",
+    "year": 2024,
+    "genre": "Pop",
+    "album": "",
+    "youtubeId": "57VMB1IzLKY",
+    "startTime": 40,
+    "duration": 30,
+    "difficulty": "easy",
+    "tags": [
+      "modern",
+      "2020s"
+    ],
+    "playCount": 0,
+    "verified": true,
+    "id": "91446ad8-ee53-4e63-93ed-5d3d9ed708a4"
+  },
+  {
+    "title": "Austin",
+    "artist": "Dasha",
+    "year": 2024,
+    "genre": "Pop",
+    "album": "",
+    "youtubeId": "FyjnbSsZ2tc",
+    "startTime": 40,
+    "duration": 30,
+    "difficulty": "easy",
+    "tags": [
+      "modern",
+      "2020s"
+    ],
+    "playCount": 0,
+    "verified": true,
+    "id": "094e5aa3-e211-4f2f-b56a-ed291efcafa1"
+  },
+  {
+    "title": "Carry You Home",
+    "artist": "Alex Warren",
+    "year": 2024,
+    "genre": "Pop",
+    "album": "",
+    "youtubeId": "d4iGZ_jP-1U",
+    "startTime": 40,
+    "duration": 30,
+    "difficulty": "easy",
+    "tags": [
+      "modern",
+      "2020s"
+    ],
+    "playCount": 0,
+    "verified": true,
+    "id": "4f4ac496-11ba-4b91-ac1c-037068688c59"
+  },
+  {
+    "title": "The Sound Of Silence (CYRIL Remix)",
+    "artist": "Disturbed",
+    "year": 2024,
+    "genre": "Pop",
+    "album": "",
+    "youtubeId": "pyHSdm_HkqE",
+    "startTime": 40,
+    "duration": 30,
+    "difficulty": "easy",
+    "tags": [
+      "modern",
+      "2020s"
+    ],
+    "playCount": 0,
+    "verified": true,
+    "id": "a98a606f-46e4-4167-9e29-e34ded5bd8ed"
+  },
+  {
+    "title": "Stargazing (Take My Heart Don\u2019t Break It) - Visualiser",
+    "artist": "Myles Smith",
+    "year": 2024,
+    "genre": "Pop",
+    "album": "",
+    "youtubeId": "9p9EauIOPm8",
+    "startTime": 40,
+    "duration": 30,
+    "difficulty": "easy",
+    "tags": [
+      "modern",
+      "2020s"
+    ],
+    "playCount": 0,
+    "verified": true,
+    "id": "ed82e8e7-5de5-4996-b495-1a9040860b30"
+  },
+  {
+    "title": "The Door",
+    "artist": "Teddy Swims",
+    "year": 2024,
+    "genre": "Pop",
+    "album": "",
+    "youtubeId": "VSXT4a2kRHA",
+    "startTime": 40,
+    "duration": 30,
+    "difficulty": "easy",
+    "tags": [
+      "modern",
+      "2020s"
+    ],
+    "playCount": 0,
+    "verified": true,
+    "id": "7c8be2a5-df93-4681-94a6-25080fa41970"
+  },
+  {
+    "title": "Die With A Smile",
+    "artist": "Lady Gaga, Bruno Mars",
+    "year": 2024,
+    "genre": "Pop",
+    "album": "",
+    "youtubeId": "kPa7bsKwL-c",
+    "startTime": 40,
+    "duration": 30,
+    "difficulty": "easy",
+    "tags": [
+      "modern",
+      "2020s"
+    ],
+    "playCount": 0,
+    "verified": true,
+    "id": "73c3c76f-957e-46cc-8fa4-d7dad2b8de94"
+  },
+  {
+    "title": "Espresso",
+    "artist": "Sabrina Carpenter",
+    "year": 2024,
+    "genre": "Pop",
+    "album": "",
+    "youtubeId": "eVli-tstM5E",
+    "startTime": 40,
+    "duration": 30,
+    "difficulty": "easy",
+    "tags": [
+      "modern",
+      "2020s"
+    ],
+    "playCount": 0,
+    "verified": true,
+    "id": "8d44bd13-79fd-4dab-afb0-445d03380f08"
+  },
+  {
+    "title": "Stick Season",
+    "artist": "Noah Kahan",
+    "year": 2024,
+    "genre": "Pop",
+    "album": "",
+    "youtubeId": "JKrDdsgXuso",
+    "startTime": 40,
+    "duration": 30,
+    "difficulty": "easy",
+    "tags": [
+      "modern",
+      "2020s"
+    ],
+    "playCount": 0,
+    "verified": true,
+    "id": "00f6ebe6-f663-4a68-9c18-88eba45f87ff"
+  },
+  {
+    "title": "BIRDS OF A FEATHER",
+    "artist": "Billie Eilish",
+    "year": 2024,
+    "genre": "Pop",
+    "album": "",
+    "youtubeId": "V9PVRfjEBTI",
+    "startTime": 40,
+    "duration": 30,
+    "difficulty": "easy",
+    "tags": [
+      "modern",
+      "2020s"
+    ],
+    "playCount": 0,
+    "verified": true,
+    "id": "921ff564-5ee1-4e1c-85dc-8747fd33e1eb"
+  },
+  {
+    "title": "I Had Some Help (feat. Morgan Wallen)",
+    "artist": "Post Malone",
+    "year": 2024,
+    "genre": "Pop",
+    "album": "",
+    "youtubeId": "4QIZE708gJ4",
+    "startTime": 40,
+    "duration": 30,
+    "difficulty": "easy",
+    "tags": [
+      "modern",
+      "2020s"
+    ],
+    "playCount": 0,
+    "verified": true,
+    "id": "31d4a8cb-5b31-4a20-9c77-a45903cfc21a"
+  },
+  {
+    "title": "Beautiful Things",
+    "artist": "Benson Boone",
+    "year": 2024,
+    "genre": "Pop",
+    "album": "",
+    "youtubeId": "Oa_RSwwpPaA",
+    "startTime": 40,
+    "duration": 30,
+    "difficulty": "easy",
+    "tags": [
+      "modern",
+      "2020s"
+    ],
+    "playCount": 0,
+    "verified": true,
+    "id": "75cb9e72-2e57-41e2-bcb3-253fb1c5ab0b"
+  },
+  {
+    "title": "Belong Together",
+    "artist": "Mark Ambor",
+    "year": 2024,
+    "genre": "Pop",
+    "album": "",
+    "youtubeId": "r0c9Q21AfLA",
+    "startTime": 40,
+    "duration": 30,
+    "difficulty": "easy",
+    "tags": [
+      "modern",
+      "2020s"
+    ],
+    "playCount": 0,
+    "verified": true,
+    "id": "659ef070-d654-421f-9858-0bbd5d9dcb26"
+  },
+  {
+    "title": "Black Friday (Pretty Like The Sun)",
+    "artist": "Lost Frequencies & Tom Odell",
+    "year": 2024,
+    "genre": "Pop",
+    "album": "",
+    "youtubeId": "vRLQQJtKEbs",
+    "startTime": 40,
+    "duration": 30,
+    "difficulty": "easy",
+    "tags": [
+      "modern",
+      "2020s"
+    ],
+    "playCount": 0,
+    "verified": true,
+    "id": "f9df3d8c-5f1d-41e7-9a74-695a118eb620"
+  },
+  {
+    "title": "Miles On It",
+    "artist": "Marshmello, Kane Brown",
+    "year": 2024,
+    "genre": "Pop",
+    "album": "",
+    "youtubeId": "RMmoyP_cpEg",
+    "startTime": 40,
+    "duration": 30,
+    "difficulty": "easy",
+    "tags": [
+      "modern",
+      "2020s"
+    ],
+    "playCount": 0,
+    "verified": true,
+    "id": "c8f2d5c5-13a3-4fb1-8e1d-358ed764b49c"
+  },
+  {
+    "title": "Overdrive feat. Norma Jean Martine",
+    "artist": "Ofenbach",
+    "year": 2024,
+    "genre": "Pop",
+    "album": "",
+    "youtubeId": "YV8P4aEXzMU",
+    "startTime": 40,
+    "duration": 30,
+    "difficulty": "easy",
+    "tags": [
+      "modern",
+      "2020s"
+    ],
+    "playCount": 0,
+    "verified": true,
+    "id": "a154c6c8-cd87-46c2-9f2f-4b89d1b40c90"
+  },
+  {
+    "title": "TEXAS HOLD 'EM",
+    "artist": "Beyonc\u00e9",
+    "year": 2024,
+    "genre": "Pop",
+    "album": "",
+    "youtubeId": "jCOX8dT9q8M",
+    "startTime": 40,
+    "duration": 30,
+    "difficulty": "easy",
+    "tags": [
+      "modern",
+      "2020s"
+    ],
+    "playCount": 0,
+    "verified": true,
+    "id": "185c4844-69d1-4185-8271-e6d46f837382"
+  },
+  {
+    "title": "Taste",
+    "artist": "Sabrina Carpenter",
+    "year": 2024,
+    "genre": "Pop",
+    "album": "",
+    "youtubeId": "KEG7b851Ric",
+    "startTime": 40,
+    "duration": 30,
+    "difficulty": "easy",
+    "tags": [
+      "modern",
+      "2020s"
+    ],
+    "playCount": 0,
+    "verified": true,
+    "id": "1a592b09-b7e8-43af-997a-cb6c333a2945"
+  },
+  {
+    "title": "Training Season",
+    "artist": "Dua Lipa",
+    "year": 2024,
+    "genre": "Pop",
+    "album": "",
+    "youtubeId": "ZjBZ8MUnB0E",
+    "startTime": 40,
+    "duration": 30,
+    "difficulty": "easy",
+    "tags": [
+      "modern",
+      "2020s"
+    ],
+    "playCount": 0,
+    "verified": true,
+    "id": "f66a6514-4b4a-4321-a1bc-a237fc8a53f5"
+  },
+  {
+    "title": "I Don't Wanna Wait",
+    "artist": "David Guetta & OneRepublic",
+    "year": 2024,
+    "genre": "Pop",
+    "album": "",
+    "youtubeId": "dSDbwfXX5_I",
+    "startTime": 40,
+    "duration": 30,
+    "difficulty": "easy",
+    "tags": [
+      "modern",
+      "2020s"
+    ],
+    "playCount": 0,
+    "verified": true,
+    "id": "a6a7cccd-bd0c-4b24-ae61-c0b657c28996"
+  },
+  {
+    "title": "Move",
+    "artist": "Adam",
+    "year": 2024,
+    "genre": "Pop",
+    "album": "",
+    "youtubeId": "j1QrD9-S4sU",
+    "startTime": 40,
+    "duration": 30,
+    "difficulty": "easy",
+    "tags": [
+      "modern",
+      "2020s"
+    ],
+    "playCount": 0,
+    "verified": true,
+    "id": "ef52731b-9517-47ad-a988-75d369d86f74"
+  },
+  {
+    "title": "Houdini",
+    "artist": "Dua Lipa",
+    "year": 2024,
+    "genre": "Pop",
+    "album": "",
+    "youtubeId": "suAR1PYFNYA",
+    "startTime": 40,
+    "duration": 30,
+    "difficulty": "easy",
+    "tags": [
+      "modern",
+      "2020s"
+    ],
+    "playCount": 0,
+    "verified": true,
+    "id": "c23b3919-7bc5-4f6e-877e-661d63165477"
+  },
+  {
+    "title": "Head Down",
+    "artist": "Lost Frequencies & Bastille",
+    "year": 2024,
+    "genre": "Pop",
+    "album": "",
+    "youtubeId": "WX2ZufgxKak",
+    "startTime": 40,
+    "duration": 30,
+    "difficulty": "easy",
+    "tags": [
+      "modern",
+      "2020s"
+    ],
+    "playCount": 0,
+    "verified": true,
+    "id": "6eeb8e20-b819-43e8-92a1-1b263578af4a"
+  },
+  {
+    "title": "When We Were Young (The Logical Song)",
+    "artist": "David Guetta & Kim Petras",
+    "year": 2024,
+    "genre": "Pop",
+    "album": "",
+    "youtubeId": "YBGtzfK5Bak",
+    "startTime": 40,
+    "duration": 30,
+    "difficulty": "easy",
+    "tags": [
+      "modern",
+      "2020s"
+    ],
+    "playCount": 0,
+    "verified": true,
+    "id": "ac86ed8b-5454-4dbb-bfe8-1d88f89f7b9e"
+  },
+  {
+    "title": "Coldplay, Elyanna, Little Simz, Burna Boy, TiNi",
+    "artist": "WE PRAY",
+    "year": 2024,
+    "genre": "Pop",
+    "album": "",
+    "youtubeId": "sTqUHqQruzQ",
+    "startTime": 40,
+    "duration": 30,
+    "difficulty": "easy",
+    "tags": [
+      "modern",
+      "2020s"
+    ],
+    "playCount": 0,
+    "verified": true,
+    "id": "de635236-f0a7-4992-a578-ef07f1116cb0"
+  },
+  {
+    "title": "Bad Dreams",
+    "artist": "Teddy Swims",
+    "year": 2024,
+    "genre": "Pop",
+    "album": "",
+    "youtubeId": "Qh8QwVYOSVU",
+    "startTime": 40,
+    "duration": 30,
+    "difficulty": "easy",
+    "tags": [
+      "modern",
+      "2020s"
+    ],
+    "playCount": 0,
+    "verified": true,
+    "id": "c70b2017-d9c4-4865-9747-f57105fe6cfc"
+  },
+  {
+    "title": "Undecided",
+    "artist": "ROND\u00c9",
+    "year": 2024,
+    "genre": "Pop",
+    "album": "",
+    "youtubeId": "AjwWZp0kWnU",
+    "startTime": 40,
+    "duration": 30,
+    "difficulty": "easy",
+    "tags": [
+      "modern",
+      "2020s"
+    ],
+    "playCount": 0,
+    "verified": true,
+    "id": "2c7143ab-30e0-4ba3-a4a7-6077e3294192"
+  },
+  {
+    "title": "Before You Leave Me",
+    "artist": "Alex Warren",
+    "year": 2024,
+    "genre": "Pop",
+    "album": "",
+    "youtubeId": "0CzEr7YT5oI",
+    "startTime": 40,
+    "duration": 30,
+    "difficulty": "easy",
+    "tags": [
+      "modern",
+      "2020s"
+    ],
+    "playCount": 0,
+    "verified": true,
+    "id": "c2e8510b-3b06-423b-b20b-6034015fc2f7"
+  },
+  {
+    "title": "Kris Kross Amsterdam x INNA \u2013 Queen Of My Castle",
+    "artist": "Kris Kross Amsterdam",
+    "year": 2024,
+    "genre": "Pop",
+    "album": "",
+    "youtubeId": "t2hSl75IrLU",
+    "startTime": 40,
+    "duration": 30,
+    "difficulty": "easy",
+    "tags": [
+      "modern",
+      "2020s"
+    ],
+    "playCount": 0,
+    "verified": true,
+    "id": "f8368e1c-587a-4d83-959b-fc8734674519"
+  },
+  {
+    "title": "feelslikeimfallinginlove",
+    "artist": "Coldplay",
+    "year": 2024,
+    "genre": "Pop",
+    "album": "",
+    "youtubeId": "V3IVdLo-2NM",
+    "startTime": 40,
+    "duration": 30,
+    "difficulty": "easy",
+    "tags": [
+      "modern",
+      "2020s"
+    ],
+    "playCount": 0,
+    "verified": true,
+    "id": "8a992868-24d1-4aa5-8821-b7fcd60ce743"
+  },
+  {
+    "title": "I Adore You",
+    "artist": "HUGEL x Topic x Arash feat. Daecolm",
+    "year": "2024",
+    "genre": "Pop",
+    "album": "",
+    "youtubeId": "Mf_pvNkNJjk",
+    "startTime": 40,
+    "duration": 30,
+    "difficulty": "easy",
+    "tags": [
+      "modern",
+      "2020s"
+    ],
+    "playCount": 0,
+    "verified": false,
+    "id": "a95e55d8-504f-4405-acd0-09c50198c309"
+  },
+  {
+    "title": "Gaan We Weg? (feat. Ronnie Flex)",
+    "artist": "Roxy Dekker",
+    "year": "2024",
+    "genre": "Pop",
+    "album": "",
+    "youtubeId": "0iHRKJ2EmvE",
+    "startTime": 40,
+    "duration": 30,
+    "difficulty": "easy",
+    "tags": [
+      "modern",
+      "2020s"
+    ],
+    "playCount": 0,
+    "verified": false,
+    "id": "9b6bc566-dd2a-4b1f-917e-84068710fcf7"
+  },
+  {
+    "title": "Tonight",
+    "artist": "Son Mieux",
+    "year": "2024",
+    "genre": "Pop",
+    "album": "",
+    "youtubeId": "M7uRWmsbvyI",
+    "startTime": 40,
+    "duration": 30,
+    "difficulty": "easy",
+    "tags": [
+      "modern",
+      "2020s"
+    ],
+    "playCount": 0,
+    "verified": false,
+    "id": "a8914335-1c46-45d1-aabb-fe0e54998e2c"
+  },
+  {
+    "title": "Larger Than Life",
+    "artist": "Armin van Buuren & Chef\u2019Special",
+    "year": "2024",
+    "genre": "Pop",
+    "album": "",
+    "youtubeId": "GZ0jJ5Ngo_0",
+    "startTime": 40,
+    "duration": 30,
+    "difficulty": "easy",
+    "tags": [
+      "modern",
+      "2020s"
+    ],
+    "playCount": 0,
+    "verified": false,
+    "id": "fba94766-24d9-4465-8637-723557f7c91f"
+  },
+  {
+    "title": "Good To Be",
+    "artist": "Mark Ambor",
+    "year": "2024",
+    "genre": "Pop",
+    "album": "",
+    "youtubeId": "qd2rbjAPiKE",
+    "startTime": 40,
+    "duration": 30,
+    "difficulty": "easy",
+    "tags": [
+      "modern",
+      "2020s"
+    ],
+    "playCount": 0,
+    "verified": false,
+    "id": "b0b228b7-e37e-4641-8272-3e5b63989887"
+  },
+  {
+    "title": "Nothing to Lose",
+    "artist": "Douwe Bob",
+    "year": "2024",
+    "genre": "Pop",
+    "album": "",
+    "youtubeId": "WRjRdT8HDOw",
+    "startTime": 40,
+    "duration": 30,
+    "difficulty": "easy",
+    "tags": [
+      "modern",
+      "2020s"
+    ],
+    "playCount": 0,
+    "verified": false,
+    "id": "2556eff7-aa1b-4f05-afb2-667586b9a7fa"
+  },
+  {
+    "title": "Houdini",
+    "artist": "Eminem",
+    "year": "2024",
+    "genre": "Pop",
+    "album": "",
+    "youtubeId": "22tVWwmTie8",
+    "startTime": 40,
+    "duration": 30,
+    "difficulty": "easy",
+    "tags": [
+      "modern",
+      "2020s"
+    ],
+    "playCount": 0,
+    "verified": false,
+    "id": "45e28ebe-fc11-43c5-a4ed-d33990546a22"
+  },
+  {
+    "title": "Waterdicht",
+    "artist": "Hannah Mae",
+    "year": "2024",
+    "genre": "Pop",
+    "album": "",
+    "youtubeId": "SycTUfFW_EU",
+    "startTime": 40,
+    "duration": 30,
+    "difficulty": "easy",
+    "tags": [
+      "modern",
+      "2020s"
+    ],
+    "playCount": 0,
+    "verified": false,
+    "id": "36dbdbe0-dab0-4956-8606-bd6a10e54c58"
+  },
+  {
+    "title": "Is It Love",
+    "artist": "Loreen",
+    "year": "2024",
+    "genre": "Pop",
+    "album": "",
+    "youtubeId": "c8fYcKkFBDY",
+    "startTime": 40,
+    "duration": 30,
+    "difficulty": "easy",
+    "tags": [
+      "modern",
+      "2020s"
+    ],
+    "playCount": 0,
+    "verified": false,
+    "id": "ff178526-7b68-4e0f-bf43-ad0ce4941466"
+  },
+  {
+    "title": "Zoet, Zout, Zuur",
+    "artist": "Robert Van Hemert",
+    "year": "2024",
+    "genre": "Pop",
+    "album": "",
+    "youtubeId": "YlK14Uhawg0",
+    "startTime": 40,
+    "duration": 30,
+    "difficulty": "easy",
+    "tags": [
+      "modern",
+      "2020s"
+    ],
+    "playCount": 0,
+    "verified": false,
+    "id": "9ae5eb31-ee59-41c2-874f-45e446a9f179"
+  },
+  {
+    "title": "Jaxomy x Agatino Romero x Raffaella Carr\u00e0 \u2013 Pedro",
+    "artist": "Jaxomy",
+    "year": "2024",
+    "genre": "Pop",
+    "album": "",
+    "youtubeId": "HxL19VWL9TM",
+    "startTime": 40,
+    "duration": 30,
+    "difficulty": "easy",
+    "tags": [
+      "modern",
+      "2020s"
+    ],
+    "playCount": 0,
+    "verified": false,
+    "id": "97123ea4-bbd5-4d50-ad19-e3e4d627869d"
+  },
+  {
+    "title": "Lose Control",
+    "artist": "Teddy Swims",
+    "year": "2024",
+    "genre": "Pop",
+    "album": "",
+    "youtubeId": "GZ3zL7kT6_c",
+    "startTime": 40,
+    "duration": 30,
+    "difficulty": "easy",
+    "tags": [
+      "modern",
+      "2020s"
+    ],
+    "playCount": 0,
+    "verified": false,
+    "id": "69f0e340-1217-41af-af74-ef0cb8edc5ef"
+  },
+  {
+    "title": "Stukje van mij",
+    "artist": "MEAU",
+    "year": "2024",
+    "genre": "Pop",
+    "album": "",
+    "youtubeId": "MC3184WBOWo",
+    "startTime": 40,
+    "duration": 30,
+    "difficulty": "easy",
+    "tags": [
+      "modern",
+      "2020s"
+    ],
+    "playCount": 0,
+    "verified": false,
+    "id": "f404722c-787a-460e-900b-3734a44a3a84"
+  },
+  {
+    "title": "Clean Bandit, Anne-Marie, David Guetta \u2013 Cry Baby",
+    "artist": "Clean Bandit",
+    "year": "2024",
+    "genre": "Pop",
+    "album": "",
+    "youtubeId": "P6OgpKqb-HA",
+    "startTime": 40,
+    "duration": 30,
+    "difficulty": "easy",
+    "tags": [
+      "modern",
+      "2020s"
+    ],
+    "playCount": 0,
+    "verified": false,
+    "id": "d1e21786-4756-43f5-83b4-34906d85c2a3"
+  },
+  {
+    "title": "My Blood",
+    "artist": "DI-RECT",
+    "year": "2024",
+    "genre": "Pop",
+    "album": "",
+    "youtubeId": "DfAPU8TN_Ms",
+    "startTime": 40,
+    "duration": 30,
+    "difficulty": "easy",
+    "tags": [
+      "modern",
+      "2020s"
+    ],
+    "playCount": 0,
+    "verified": false,
+    "id": "0d95f677-8907-46fc-bf28-dc5382917859"
+  },
+  {
+    "title": "greedy",
+    "artist": "Tate McRae",
+    "year": "2024",
+    "genre": "Pop",
+    "album": "",
+    "youtubeId": "To4SWGZkEPk",
+    "startTime": 40,
+    "duration": 30,
+    "difficulty": "easy",
+    "tags": [
+      "modern",
+      "2020s"
+    ],
+    "playCount": 0,
+    "verified": false,
+    "id": "c24f9c47-2848-47cd-a65b-5b108385df95"
+  },
+  {
+    "title": "Whatever",
+    "artist": "Kygo, Ava Max",
+    "year": "2024",
+    "genre": "Pop",
+    "album": "",
+    "youtubeId": "ZDZiXmCl4pk",
+    "startTime": 40,
+    "duration": 30,
+    "difficulty": "easy",
+    "tags": [
+      "modern",
+      "2020s"
+    ],
+    "playCount": 0,
+    "verified": false,
+    "id": "5554a024-06d8-417e-b16f-0fb92c50379d"
+  },
+  {
+    "title": "Pretty Girls (prod. Vanno) | #7fest",
+    "artist": "Frenna",
+    "year": "2024",
+    "genre": "Pop",
+    "album": "",
+    "youtubeId": "zHHbRbrqDJY",
+    "startTime": 40,
+    "duration": 30,
+    "difficulty": "easy",
+    "tags": [
+      "modern",
+      "2020s"
+    ],
+    "playCount": 0,
+    "verified": false,
+    "id": "83bb6da4-a19f-4381-9e4e-3bafb96b0f3c"
+  },
+  {
+    "title": "Alleen Met Jou",
+    "artist": "Yves Berendse & Emma Heesters",
+    "year": "2024",
+    "genre": "Pop",
+    "album": "",
+    "youtubeId": "PxcsfEPYpnI",
+    "startTime": 40,
+    "duration": 30,
+    "difficulty": "easy",
+    "tags": [
+      "modern",
+      "2020s"
+    ],
+    "playCount": 0,
+    "verified": false,
+    "id": "ff921099-2023-4fe6-ba63-92ed09d6f7a9"
+  },
+  {
+    "title": "Speed Of Light",
+    "artist": "Chef'Special",
+    "year": "2024",
+    "genre": "Pop",
+    "album": "",
+    "youtubeId": "l3jRIr44lss",
+    "startTime": 40,
+    "duration": 30,
+    "difficulty": "easy",
+    "tags": [
+      "modern",
+      "2020s"
+    ],
+    "playCount": 0,
+    "verified": false,
+    "id": "0197cfee-d616-4625-946b-d3b87b5a4510"
+  },
+  {
+    "title": "It's Not Right (But It's Okay)",
+    "artist": "Mr. Belt & Wezol",
+    "year": "2024",
+    "genre": "Pop",
+    "album": "",
+    "youtubeId": "jr8Sj-8ikNY",
+    "startTime": 40,
+    "duration": 30,
+    "difficulty": "easy",
+    "tags": [
+      "modern",
+      "2020s"
+    ],
+    "playCount": 0,
+    "verified": false,
+    "id": "fd33e0a6-f3b6-483b-8006-68fb7e366032"
+  },
+  {
+    "title": "Smile",
+    "artist": "Martin Garrix feat. Carolina Liar",
+    "year": "2024",
+    "genre": "Pop",
+    "album": "",
+    "youtubeId": "MQ9K6EbQUxE",
+    "startTime": 40,
+    "duration": 30,
+    "difficulty": "easy",
+    "tags": [
+      "modern",
+      "2020s"
+    ],
+    "playCount": 0,
+    "verified": false,
+    "id": "742a12a8-1a78-41e3-9ac5-be25929a0f7d"
+  },
+  {
+    "title": "Thank You (Not So Bad)",
+    "artist": "Dimitri Vegas & Like Mike & Ti\u00ebsto & Dido & W&W",
+    "year": "2024",
+    "genre": "Pop",
+    "album": "",
+    "youtubeId": "fQWNeIiFf_s",
+    "startTime": 40,
+    "duration": 30,
+    "difficulty": "easy",
+    "tags": [
+      "modern",
+      "2020s"
+    ],
+    "playCount": 0,
+    "verified": false,
+    "id": "b067829d-212a-47d0-9d1c-08b9485e3f5e"
+  },
+  {
+    "title": "Contigo",
+    "artist": "Emma Heesters & Rolf Sanchez",
+    "year": "2024",
+    "genre": "Pop",
+    "album": "",
+    "youtubeId": "TYENQ5xwGtQ",
+    "startTime": 40,
+    "duration": 30,
+    "difficulty": "easy",
+    "tags": [
+      "modern",
+      "2020s"
+    ],
+    "playCount": 0,
+    "verified": false,
+    "id": "e0027cea-cf10-4c08-8610-b6fb14013842"
+  },
+  {
+    "title": "Illusion",
+    "artist": "Dua Lipa",
+    "year": "2024",
+    "genre": "Pop",
+    "album": "",
+    "youtubeId": "a9cyG_yfh1k",
+    "startTime": 40,
+    "duration": 30,
+    "difficulty": "easy",
+    "tags": [
+      "modern",
+      "2020s"
+    ],
+    "playCount": 0,
+    "verified": false,
+    "id": "b4d95f70-dfdf-47e6-b848-075727ed8117"
+  },
+  {
+    "title": "I Like It",
+    "artist": "Alesso, Nate Smith",
+    "year": "2024",
+    "genre": "Pop",
+    "album": "",
+    "youtubeId": "b55D9TrihFY",
+    "startTime": 40,
+    "duration": 30,
+    "difficulty": "easy",
+    "tags": [
+      "modern",
+      "2020s"
+    ],
+    "playCount": 0,
+    "verified": false,
+    "id": "2ee6a50c-6407-4e79-88a1-94e22a275526"
+  },
+  {
+    "title": "Stay (Never Leave)",
+    "artist": "Kris Kross Amsterdam x SERA x Conor Maynard",
+    "year": "2024",
+    "genre": "Pop",
+    "album": "",
+    "youtubeId": "OKRFj-Cmsss",
+    "startTime": 40,
+    "duration": 30,
+    "difficulty": "easy",
+    "tags": [
+      "modern",
+      "2020s"
+    ],
+    "playCount": 0,
+    "verified": false,
+    "id": "bfe90b0d-00fb-4346-ad5f-d003bad0eaca"
+  },
+  {
+    "title": "Trust Me Mate",
+    "artist": "Dean Lewis",
+    "year": "2024",
+    "genre": "Pop",
+    "album": "",
+    "youtubeId": "NRL-Dxybo_A",
+    "startTime": 40,
+    "duration": 30,
+    "difficulty": "easy",
+    "tags": [
+      "modern",
+      "2020s"
+    ],
+    "playCount": 0,
+    "verified": false,
+    "id": "14e40585-a214-47d0-a666-ccb85ca14ea0"
+  },
+  {
+    "title": "Mi Amor (with JVKE & Anitta)",
+    "artist": "Sam Feldt",
+    "year": "2024",
+    "genre": "Pop",
+    "album": "",
+    "youtubeId": "hdPCuV9nurQ",
+    "startTime": 40,
+    "duration": 30,
+    "difficulty": "easy",
+    "tags": [
+      "modern",
+      "2020s"
+    ],
+    "playCount": 0,
+    "verified": false,
+    "id": "55019f0a-ac50-4da1-8eb2-ae2d75d1486b"
+  },
+  {
+    "title": "Wait For You",
+    "artist": "Myles Smith",
+    "year": "2024",
+    "genre": "Pop",
+    "album": "",
+    "youtubeId": "fZUp0zaQNcA",
+    "startTime": 40,
+    "duration": 30,
+    "difficulty": "easy",
+    "tags": [
+      "modern",
+      "2020s"
+    ],
+    "playCount": 0,
+    "verified": false,
+    "id": "3e4d285d-1c5c-4c33-a7c2-9b66367f85ae"
+  },
+  {
+    "title": "Never Going Home Tonight (Feat. Madison Love)",
+    "artist": "David Guetta & Alesso",
+    "year": "2024",
+    "genre": "Pop",
+    "album": "",
+    "youtubeId": "YOT5LoFuQfM",
+    "startTime": 40,
+    "duration": 30,
+    "difficulty": "easy",
+    "tags": [
+      "modern",
+      "2020s"
+    ],
+    "playCount": 0,
+    "verified": false,
+    "id": "0f287dff-31b7-45bc-ac2c-c930777561c6"
+  },
+  {
+    "title": "yes, and?",
+    "artist": "Ariana Grande",
+    "year": "2024",
+    "genre": "Pop",
+    "album": "",
+    "youtubeId": "eB6txyhHFG4",
+    "startTime": 40,
+    "duration": 30,
+    "difficulty": "easy",
+    "tags": [
+      "modern",
+      "2020s"
+    ],
+    "playCount": 0,
+    "verified": false,
+    "id": "0ff9d6fe-9510-4897-a9c5-a6159494516f"
+  },
+  {
+    "title": "Dancing In The Flames",
+    "artist": "The Weeknd",
+    "year": "2024",
+    "genre": "Pop",
+    "album": "",
+    "youtubeId": "MLlSSJ0z7xM",
+    "startTime": 40,
+    "duration": 30,
+    "difficulty": "easy",
+    "tags": [
+      "modern",
+      "2020s"
+    ],
+    "playCount": 0,
+    "verified": false,
+    "id": "126b1723-499f-4ca7-8a64-195b41aa9a48"
+  },
+  {
+    "title": "Huisfeestje ft. Roxy Dekker",
+    "artist": "Bankzitters",
+    "year": "2024",
+    "genre": "Pop",
+    "album": "",
+    "youtubeId": "WNFqq-0q9r4",
+    "startTime": 40,
+    "duration": 30,
+    "difficulty": "easy",
+    "tags": [
+      "modern",
+      "2020s"
+    ],
+    "playCount": 0,
+    "verified": false,
+    "id": "780da9b6-aa11-4dd2-8c26-c88f715c959c"
+  },
+  {
+    "title": "Slow It Down",
+    "artist": "Benson Boone",
+    "year": "2024",
+    "genre": "Pop",
+    "album": "",
+    "youtubeId": "f4Y3b7un4LE",
+    "startTime": 40,
+    "duration": 30,
+    "difficulty": "easy",
+    "tags": [
+      "modern",
+      "2020s"
+    ],
+    "playCount": 0,
+    "verified": false,
+    "id": "ad1eb6e6-9b72-4407-b831-bf65a8c8dfd9"
+  },
+  {
+    "title": "Tino Martin & Anouk \u2013 Voor Je 't Weet",
+    "artist": "Tino Martin",
+    "year": "2024",
+    "genre": "Pop",
+    "album": "",
+    "youtubeId": "NTByO6jnItc",
+    "startTime": 40,
+    "duration": 30,
+    "difficulty": "easy",
+    "tags": [
+      "modern",
+      "2020s"
+    ],
+    "playCount": 0,
+    "verified": false,
+    "id": "90726415-4b49-4c51-a277-96d40e0072be"
+  },
+  {
+    "title": "That\u2019s So True",
+    "artist": "Gracie Abrams",
+    "year": "2024",
+    "genre": "Pop",
+    "album": "",
+    "youtubeId": "BDHM8cyJQa8",
+    "startTime": 40,
+    "duration": 30,
+    "difficulty": "easy",
+    "tags": [
+      "modern",
+      "2020s"
+    ],
+    "playCount": 0,
+    "verified": false,
+    "id": "c9787f0e-c5b2-408f-a9e1-d4135b8c0a94"
+  },
+  {
+    "title": "Please Please Please",
+    "artist": "Sabrina Carpenter",
+    "year": "2024",
+    "genre": "Pop",
+    "album": "",
+    "youtubeId": "cF1Na4AIecM",
+    "startTime": 40,
+    "duration": 30,
+    "difficulty": "easy",
+    "tags": [
+      "modern",
+      "2020s"
+    ],
+    "playCount": 0,
+    "verified": false,
+    "id": "8cb90b2a-8de5-4734-a696-23d8d3f34fb6"
+  },
+  {
+    "title": "DAT IS HET LEVEN | OFFICI\u00cbLE VIDEOCLIP",
+    "artist": "LUNA",
+    "year": "2024",
+    "genre": "Pop",
+    "album": "",
+    "youtubeId": "N-vwN3iD3ZA",
+    "startTime": 40,
+    "duration": 30,
+    "difficulty": "easy",
+    "tags": [
+      "modern",
+      "2020s"
+    ],
+    "playCount": 0,
+    "verified": false,
+    "id": "8172d140-8ccf-445d-ae99-5cb14ce88bd1"
+  },
+  {
+    "title": "APT.",
+    "artist": "ROS\u00c9 & Bruno Mars",
+    "year": "2024",
+    "genre": "Pop",
+    "album": "",
+    "youtubeId": "ekr2nIex040",
+    "startTime": 40,
+    "duration": 30,
+    "difficulty": "easy",
+    "tags": [
+      "modern",
+      "2020s"
+    ],
+    "playCount": 0,
+    "verified": false,
+    "id": "3ff7861c-a45c-42ca-b490-c6128308fa31"
+  },
+  {
+    "title": "Cruel Summer",
+    "artist": "Taylor Swift",
+    "year": "2024",
+    "genre": "Pop",
+    "album": "",
+    "youtubeId": "ic8j13piAhQ",
+    "startTime": 40,
+    "duration": 30,
+    "difficulty": "easy",
+    "tags": [
+      "modern",
+      "2020s"
+    ],
+    "playCount": 0,
+    "verified": false,
+    "id": "75aa20d0-0858-4b9d-933a-efae6ec9de3e"
+  },
+  {
+    "title": "I Love You, I\u2019m Sorry",
+    "artist": "Gracie Abrams",
+    "year": "2024",
+    "genre": "Pop",
+    "album": "",
+    "youtubeId": "uxjhN_Donfw",
+    "startTime": 40,
+    "duration": 30,
+    "difficulty": "easy",
+    "tags": [
+      "modern",
+      "2020s"
+    ],
+    "playCount": 0,
+    "verified": false,
+    "id": "fb082481-ed4c-4f32-aa34-70cad711c898"
+  },
+  {
+    "title": "Het midden",
+    "artist": "Pommelien Thijs, MEAU",
+    "year": "2024",
+    "genre": "Pop",
+    "album": "",
+    "youtubeId": "u5JtktdlSWs",
+    "startTime": 40,
+    "duration": 30,
+    "difficulty": "easy",
+    "tags": [
+      "modern",
+      "2020s"
+    ],
+    "playCount": 0,
+    "verified": false,
+    "id": "fc4af6bf-b92b-423f-b818-5b8d74abaf34"
+  },
+  {
+    "title": "All Out Of Fight",
+    "artist": "P!NK",
+    "year": "2024",
+    "genre": "Pop",
+    "album": "",
+    "youtubeId": "5DuZkK_trYY",
+    "startTime": 40,
+    "duration": 30,
+    "difficulty": "easy",
+    "tags": [
+      "modern",
+      "2020s"
+    ],
+    "playCount": 0,
+    "verified": false,
+    "id": "71758ead-35a2-493a-8450-f669605809d5"
+  },
+  {
+    "title": "Blindelings",
+    "artist": "Antoon",
+    "year": "2024",
+    "genre": "Pop",
+    "album": "",
+    "youtubeId": "LSi32s9xwMw",
+    "startTime": 40,
+    "duration": 30,
+    "difficulty": "easy",
+    "tags": [
+      "modern",
+      "2020s"
+    ],
+    "playCount": 0,
+    "verified": false,
+    "id": "f511bb07-0040-4a36-b440-da453b39ea0d"
+  },
+  {
+    "title": "Champions League",
+    "artist": "FLEMMING, BOEF",
+    "year": "2024",
+    "genre": "Pop",
+    "album": "",
+    "youtubeId": "fA0erfZ6zQ0",
+    "startTime": 40,
+    "duration": 30,
+    "difficulty": "easy",
+    "tags": [
+      "modern",
+      "2020s"
+    ],
+    "playCount": 0,
+    "verified": false,
+    "id": "201e73df-a221-4b96-8799-787de96fe5dc"
+  },
+  {
+    "title": "Hier Mag Alles",
+    "artist": "Donnie & Marco Schuitmaker",
+    "year": "2024",
+    "genre": "Pop",
+    "album": "",
+    "youtubeId": "TeF7QbTzJCI",
+    "startTime": 40,
+    "duration": 30,
+    "difficulty": "easy",
+    "tags": [
+      "modern",
+      "2020s"
+    ],
+    "playCount": 0,
+    "verified": false,
+    "id": "56aea230-a860-4f16-b8b4-3ddaa79059aa"
+  },
+  {
+    "title": "\u00c9coutez-moi",
+    "artist": "Claude",
+    "year": "2024",
+    "genre": "Pop",
+    "album": "",
+    "youtubeId": "a73JujLmMTA",
+    "startTime": 40,
+    "duration": 30,
+    "difficulty": "easy",
+    "tags": [
+      "modern",
+      "2020s"
+    ],
+    "playCount": 0,
+    "verified": false,
+    "id": "be6e204b-b447-4eb7-bd58-32798134f459"
+  },
+  {
+    "title": "Fire",
+    "artist": "MEDUZA, OneRepublic, Leony",
+    "year": "2024",
+    "genre": "Pop",
+    "album": "",
+    "youtubeId": "C5B22ONbFrc",
+    "startTime": 40,
+    "duration": 30,
+    "difficulty": "easy",
+    "tags": [
+      "modern",
+      "2020s"
+    ],
+    "playCount": 0,
+    "verified": false,
+    "id": "547eb2e0-09f5-4a9c-8820-69fec10de45d"
+  },
+  {
+    "title": "Kisses (ft. bbyclose)",
+    "artist": "BL3SS x CamrinWatsin",
+    "year": "2024",
+    "genre": "Pop",
+    "album": "",
+    "youtubeId": "jbF01xLv7FU",
+    "startTime": 40,
+    "duration": 30,
+    "difficulty": "easy",
+    "tags": [
+      "modern",
+      "2020s"
+    ],
+    "playCount": 0,
+    "verified": false,
+    "id": "bdd9f744-4677-46fe-b9c9-0678f443dda8"
+  },
+  {
+    "title": "Ratata",
+    "artist": "La Fuente",
+    "year": "2024",
+    "genre": "Pop",
+    "album": "",
+    "youtubeId": "KcpZ-bLbqQ8",
+    "startTime": 40,
+    "duration": 30,
+    "difficulty": "easy",
+    "tags": [
+      "modern",
+      "2020s"
+    ],
+    "playCount": 0,
+    "verified": false,
+    "id": "536607bd-e1bb-49ac-bd9d-46031fb596d2"
+  },
+  {
+    "title": "i like the way you kiss me",
+    "artist": "Artemas",
+    "year": "2024",
+    "genre": "Pop",
+    "album": "",
+    "youtubeId": "evJ6gX1lp2o",
+    "startTime": 40,
+    "duration": 30,
+    "difficulty": "easy",
+    "tags": [
+      "modern",
+      "2020s"
+    ],
+    "playCount": 0,
+    "verified": false,
+    "id": "3210be37-3855-407c-b28d-67cbf2c31604"
+  },
+  {
+    "title": "Burning Down",
+    "artist": "Alex Warren",
+    "year": "2024",
+    "genre": "Pop",
+    "album": "",
+    "youtubeId": "GdAbRtmIRto",
+    "startTime": 40,
+    "duration": 30,
+    "difficulty": "easy",
+    "tags": [
+      "modern",
+      "2020s"
+    ],
+    "playCount": 0,
+    "verified": false,
+    "id": "35d09cf8-b392-40d1-b27f-300f05abe44f"
+  },
+  {
+    "title": "Sailor Song",
+    "artist": "Gigi Perez",
+    "year": "2024",
+    "genre": "Pop",
+    "album": "",
+    "youtubeId": "1lrFsXkT_rM",
+    "startTime": 40,
+    "duration": 30,
+    "difficulty": "easy",
+    "tags": [
+      "modern",
+      "2020s"
+    ],
+    "playCount": 0,
+    "verified": false,
+    "id": "7e973556-be54-41ec-a2b0-4cfe1801958a"
+  },
+  {
+    "title": "Froukje & S10 \u2013 Ik Haat Hem Voor Jou (prod. Antoon)",
+    "artist": "Froukje",
+    "year": "2024",
+    "genre": "Pop",
+    "album": "",
+    "youtubeId": "B5eKW9vtHoA",
+    "startTime": 40,
+    "duration": 30,
+    "difficulty": "easy",
+    "tags": [
+      "modern",
+      "2020s"
+    ],
+    "playCount": 0,
+    "verified": false,
+    "id": "3017ec11-5cde-435e-932c-c284cc0d56b1"
+  },
+  {
+    "title": "Satisfyer",
+    "artist": "Roxy Dekker",
+    "year": "2024",
+    "genre": "Pop",
+    "album": "",
+    "youtubeId": "zhWMnQijR8I",
+    "startTime": 40,
+    "duration": 30,
+    "difficulty": "easy",
+    "tags": [
+      "modern",
+      "2020s"
+    ],
+    "playCount": 0,
+    "verified": false,
+    "id": "c0441dff-b7d3-437f-b1c6-703c1668455f"
+  },
+  {
+    "title": "UNHEALTHY feat. Shania Twain",
+    "artist": "Anne-Marie",
+    "year": "2024",
+    "genre": "Pop",
+    "album": "",
+    "youtubeId": "Nc3dBG1NesE",
+    "startTime": 40,
+    "duration": 30,
+    "difficulty": "easy",
+    "tags": [
+      "modern",
+      "2020s"
+    ],
+    "playCount": 0,
+    "verified": false,
+    "id": "a253f71d-4c0d-4994-9de2-32bff190ce9e"
+  },
+  {
+    "title": "Love Somebody",
+    "artist": "Morgan Wallen",
+    "year": "2024",
+    "genre": "Pop",
+    "album": "",
+    "youtubeId": "zxMo0CZZzyg",
+    "startTime": 40,
+    "duration": 30,
+    "difficulty": "easy",
+    "tags": [
+      "modern",
+      "2020s"
+    ],
+    "playCount": 0,
+    "verified": false,
+    "id": "70118d3f-568d-42b8-9638-f5c09928a922"
+  },
+  {
+    "title": "Why Why Why",
+    "artist": "Shawn Mendes",
+    "year": "2024",
+    "genre": "Pop",
+    "album": "",
+    "youtubeId": "0M1UCYRZAtM",
+    "startTime": 40,
+    "duration": 30,
+    "difficulty": "easy",
+    "tags": [
+      "modern",
+      "2020s"
+    ],
+    "playCount": 0,
+    "verified": false,
+    "id": "97c1fbee-80b6-4803-a275-42a96513d4be"
+  },
+  {
+    "title": "Damage ft. Ronnie Flex (prod. Project Money)",
+    "artist": "Noano",
+    "year": "2024",
+    "genre": "Pop",
+    "album": "",
+    "youtubeId": "nBrL-YRR8Bc",
+    "startTime": 40,
+    "duration": 30,
+    "difficulty": "easy",
+    "tags": [
+      "modern",
+      "2020s"
+    ],
+    "playCount": 0,
+    "verified": false,
+    "id": "3e4cf0e4-5fd3-4c14-b5c6-be3c997d1c70"
+  },
+  {
+    "title": "Too Sweet",
+    "artist": "Hozier",
+    "year": "2024",
+    "genre": "Pop",
+    "album": "",
+    "youtubeId": "NTpbbQUBbuo",
+    "startTime": 40,
+    "duration": 30,
+    "difficulty": "easy",
+    "tags": [
+      "modern",
+      "2020s"
+    ],
+    "playCount": 0,
+    "verified": false,
+    "id": "8e2f4d9f-4656-4e87-9b4b-365c3487c80e"
+  },
+  {
+    "title": "I Won't Let Go",
+    "artist": "Davina Michelle",
+    "year": "2024",
+    "genre": "Pop",
+    "album": "",
+    "youtubeId": "ZUXrNb6VvYY",
+    "startTime": 40,
+    "duration": 30,
+    "difficulty": "easy",
+    "tags": [
+      "modern",
+      "2020s"
+    ],
+    "playCount": 0,
+    "verified": false,
+    "id": "cac1aa7a-dcc8-4464-b98f-1d65900e0bdd"
+  }
+]
