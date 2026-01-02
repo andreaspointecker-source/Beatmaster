@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="de" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BeatMaster - Button Debug</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#00d9ff",
+            "background-dark": "#0f2023",
+            "surface-dark": "#162a2d",
+          },
+        },
+      },
+    }
+  </script>
+  <style>
+    .material-symbols-outlined { font-variation-settings: 'FILL' 1, 'wght' 600; }
+    body { font-family: 'Inter', sans-serif; }
+    .log-success { color: #4ade80; }
+    .log-error { color: #f87171; }
+    .log-warning { color: #fbbf24; }
+    .log-info { color: #60a5fa; }
+  </style>
+</head>
+<body class="bg-background-dark text-white min-h-screen p-6">
+  <div class="max-w-4xl mx-auto">
+    <h1 class="text-3xl font-bold mb-6 flex items-center gap-3">
+      <span class="material-symbols-outlined text-primary text-4xl">bug_report</span>
+      Button Debug Test
+    </h1>
+
+    <!-- Live Log -->
+    <div class="bg-surface-dark rounded-2xl p-6 mb-6">
+      <h2 class="text-xl font-bold mb-4">Live Debug Log</h2>
+      <div id="log" class="bg-black/50 rounded-lg p-4 font-mono text-sm h-96 overflow-y-auto">
+        <div class="text-white/40">Test startet automatisch...</div>
+      </div>
+    </div>
+
+    <!-- Test Buttons -->
+    <div class="bg-surface-dark rounded-2xl p-6 mb-6">
+      <h2 class="text-xl font-bold mb-4">Test Buttons (Manuell)</h2>
+      <div class="space-y-3">
+        <button id="test-1" class="w-full bg-primary text-background-dark px-6 py-3 rounded-full font-bold">
+          Test 1: Simpler Click
+        </button>
+        <button id="test-2" class="w-full bg-green-500 text-white px-6 py-3 rounded-full font-bold">
+          Test 2: Mit addEventListener
+        </button>
+        <button onclick="manualTest()" class="w-full bg-blue-500 text-white px-6 py-3 rounded-full font-bold">
+          Test 3: Inline onclick
+        </button>
+        <button data-action="manual-action" class="w-full bg-purple-500 text-white px-6 py-3 rounded-full font-bold">
+          Test 4: data-action
+        </button>
+      </div>
+    </div>
+
+    <!-- Status -->
+    <div class="bg-surface-dark rounded-2xl p-6">
+      <h2 class="text-xl font-bold mb-4">Test Status</h2>
+      <div id="status" class="space-y-2"></div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/config.js"></script>
+  <script src="js/modules/utils.js"></script>
+  <script src="js/state.js"></script>
+  <script src="js/modules/storage.js"></script>
+  <script src="js/screens/home.js"></script>
+  <script src="js/app.js"></script>
+
+  <script>
+    const logEl = document.getElementById('log');
+    const statusEl = document.getElementById('status');
+    const tests = [];
+
+    function log(message, type = 'info') {
+      const time = new Date().toLocaleTimeString();
+      const div = document.createElement('div');
+      div.className = `log-${type} mb-1`;
+      div.textContent = `[${time}] ${message}`;
+      logEl.appendChild(div);
+      logEl.scrollTop = logEl.scrollHeight;
+      console.log(message);
+    }
+
+    function updateStatus() {
+      const passed = tests.filter(t => t.passed).length;
+      const failed = tests.filter(t => !t.passed).length;
+
+      statusEl.innerHTML = `
+        <div class="flex gap-4">
+          <div class="flex-1 bg-green-900/20 rounded-lg p-4">
+            <div class="text-4xl font-bold text-green-400">${passed}</div>
+            <div class="text-sm text-white/60">Tests bestanden</div>
+          </div>
+          <div class="flex-1 bg-red-900/20 rounded-lg p-4">
+            <div class="text-4xl font-bold text-red-400">${failed}</div>
+            <div class="text-sm text-white/60">Tests fehlgeschlagen</div>
+          </div>
+        </div>
+        <div class="mt-4 space-y-1">
+          ${tests.map(t => `
+            <div class="flex items-center gap-2 text-sm">
+              <span class="material-symbols-outlined text-${t.passed ? 'green' : 'red'}-400">
+                ${t.passed ? 'check_circle' : 'cancel'}
+              </span>
+              <span>${t.name}</span>
+            </div>
+          `).join('')}
+        </div>
+      `;
+    }
+
+    function addTest(name, passed) {
+      tests.push({ name, passed });
+      updateStatus();
+    }
+
+    // Manuelle Test-Funktion
+    function manualTest() {
+      log('✅ Inline onclick funktioniert!', 'success');
+      addTest('Inline onclick', true);
+    }
+
+    // Error Tracking
+    window.addEventListener('error', (e) => {
+      log(`❌ Global Error: ${e.message} (${e.filename}:${e.lineno})`, 'error');
+    });
+
+    // Auto-Start Tests
+    window.addEventListener('load', () => {
+      log('=== Button Debug Test startet ===', 'info');
+      log('', 'info');
+
+      // Test 1: Module geladen?
+      log('--- Test 1: Module Verfügbarkeit ---', 'info');
+
+      if (typeof CONFIG !== 'undefined') {
+        log('✅ CONFIG geladen', 'success');
+        addTest('CONFIG verfügbar', true);
+      } else {
+        log('❌ CONFIG nicht gefunden', 'error');
+        addTest('CONFIG verfügbar', false);
+      }
+
+      if (typeof Utils !== 'undefined') {
+        log('✅ Utils geladen', 'success');
+        addTest('Utils verfügbar', true);
+      } else {
+        log('❌ Utils nicht gefunden', 'error');
+        addTest('Utils verfügbar', false);
+      }
+
+      if (typeof State !== 'undefined') {
+        log('✅ State geladen', 'success');
+        addTest('State verfügbar', true);
+      } else {
+        log('❌ State nicht gefunden', 'error');
+        addTest('State verfügbar', false);
+      }
+
+      if (typeof Storage !== 'undefined') {
+        log('✅ Storage geladen', 'success');
+        addTest('Storage verfügbar', true);
+      } else {
+        log('❌ Storage nicht gefunden', 'error');
+        addTest('Storage verfügbar', false);
+      }
+
+      if (typeof HomeScreen !== 'undefined') {
+        log('✅ HomeScreen Klasse geladen', 'success');
+        addTest('HomeScreen verfügbar', true);
+      } else {
+        log('❌ HomeScreen nicht gefunden', 'error');
+        addTest('HomeScreen verfügbar', false);
+      }
+
+      if (typeof App !== 'undefined') {
+        log('✅ App Objekt geladen', 'success');
+        addTest('App verfügbar', true);
+      } else {
+        log('❌ App nicht gefunden', 'error');
+        addTest('App verfügbar', false);
+      }
+
+      log('', 'info');
+
+      // Test 2: HomeScreen instantiieren
+      log('--- Test 2: HomeScreen Instantiierung ---', 'info');
+      try {
+        const testContainer = document.createElement('div');
+        const homeScreen = new HomeScreen();
+        log('✅ HomeScreen Instanz erstellt', 'success');
+        addTest('HomeScreen Instanz', true);
+
+        // Render testen
+        homeScreen.render(testContainer);
+        log('✅ HomeScreen.render() funktioniert', 'success');
+        addTest('HomeScreen.render()', true);
+
+        // Prüfe ob Buttons gerendert wurden
+        const buttons = testContainer.querySelectorAll('button[data-action]');
+        log(`ℹ️  ${buttons.length} Buttons mit data-action gefunden`, 'info');
+
+        if (buttons.length > 0) {
+          log('✅ Buttons wurden gerendert', 'success');
+          addTest('Buttons gerendert', true);
+
+          // Liste alle gefundenen Buttons
+          buttons.forEach((btn, i) => {
+            const action = btn.dataset.action;
+            log(`   ${i + 1}. Button: data-action="${action}"`, 'info');
+          });
+        } else {
+          log('❌ Keine Buttons gefunden!', 'error');
+          addTest('Buttons gerendert', false);
+        }
+
+        // Prüfe ob attachEventListeners aufgerufen wurde
+        log('ℹ️  Prüfe Event Listeners...', 'info');
+
+        // Simuliere Button-Click
+        const newGameBtn = testContainer.querySelector('[data-action="new-game"]');
+        if (newGameBtn) {
+          log('✅ "Neues Spiel" Button gefunden', 'success');
+          addTest('Button gefunden', true);
+
+          // Test: Wurde Event Listener angehängt?
+          let clickWorked = false;
+          const originalNavigate = App.navigate;
+          App.navigate = function(route) {
+            clickWorked = true;
+            log(`✅ App.navigate("${route}") wurde aufgerufen!`, 'success');
+            addTest('Button Click funktioniert', true);
+            originalNavigate.call(App, route);
+          };
+
+          // Click simulieren
+          log('ℹ️  Simuliere Button-Click...', 'info');
+          newGameBtn.click();
+
+          if (!clickWorked) {
+            log('❌ Click-Event wurde nicht verarbeitet!', 'error');
+            addTest('Button Click funktioniert', false);
+            log('⚠️  Event Listener wurde wahrscheinlich nicht angehängt', 'warning');
+          }
+
+          // Restore
+          App.navigate = originalNavigate;
+        } else {
+          log('❌ "Neues Spiel" Button nicht gefunden', 'error');
+          addTest('Button gefunden', false);
+        }
+
+      } catch (error) {
+        log(`❌ Fehler beim Testen: ${error.message}`, 'error');
+        log(`   Stack: ${error.stack}`, 'error');
+        addTest('HomeScreen Test', false);
+      }
+
+      log('', 'info');
+
+      // Test 3: Manuelle Button-Tests
+      log('--- Test 3: Manuelle Button Event Listeners ---', 'info');
+
+      // Test Button 1
+      const btn1 = document.getElementById('test-1');
+      if (btn1) {
+        btn1.addEventListener('click', () => {
+          log('✅ Test Button 1 Click funktioniert', 'success');
+          addTest('Manual Button 1', true);
+        });
+        log('ℹ️  Test Button 1 Event Listener angehängt', 'info');
+      }
+
+      // Test Button 2
+      const btn2 = document.getElementById('test-2');
+      if (btn2) {
+        btn2.addEventListener('click', () => {
+          log('✅ Test Button 2 Click funktioniert', 'success');
+          addTest('Manual Button 2', true);
+        });
+        log('ℹ️  Test Button 2 Event Listener angehängt', 'info');
+      }
+
+      // Test Button 4 (data-action)
+      const btn4 = document.querySelector('[data-action="manual-action"]');
+      if (btn4) {
+        btn4.addEventListener('click', () => {
+          log('✅ Test Button 4 (data-action) Click funktioniert', 'success');
+          addTest('Manual Button 4', true);
+        });
+        log('ℹ️  Test Button 4 Event Listener angehängt', 'info');
+      }
+
+      log('', 'info');
+      log('=== Auto-Tests abgeschlossen ===', 'success');
+      log('ℹ️  Klicke auf die Test-Buttons oben um manuelle Tests durchzuführen', 'info');
+      log('', 'info');
+
+      // Wichtige Diagnose
+      log('--- DIAGNOSE ---', 'warning');
+      log('Wenn "Button Click funktioniert" FEHLSCHLÄGT:', 'warning');
+      log('→ Problem: attachEventListeners() wird nicht aufgerufen', 'warning');
+      log('→ Oder: Event Listener werden zu früh angehängt (DOM nicht bereit)', 'warning');
+      log('', 'info');
+      log('Wenn die Test-Buttons NICHT funktionieren:', 'warning');
+      log('→ Problem: JavaScript ist blockiert oder Browser-Einstellung', 'warning');
+    });
+  </script>
+</body>
+</html>

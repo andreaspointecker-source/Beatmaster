@@ -1,0 +1,396 @@
+/* BeatMaster - Screens CSS */
+/* Screen-spezifische Layouts */
+
+/* ========== Home Screen ========== */
+.home-screen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(100vh - var(--spacing-lg) * 2);
+  text-align: center;
+}
+
+.home-logo {
+  font-size: var(--font-size-3xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-primary);
+  margin-bottom: var(--spacing-xl);
+}
+
+.home-subtitle {
+  font-size: var(--font-size-lg);
+  color: var(--color-text-secondary);
+  margin-bottom: var(--spacing-2xl);
+}
+
+.home-menu {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+  width: 100%;
+  max-width: 400px;
+}
+
+/* ========== Database Manager Screen ========== */
+.database-manager-screen {
+  padding: var(--spacing-lg) 0;
+}
+
+.database-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--spacing-xl);
+  flex-wrap: wrap;
+  gap: var(--spacing-md);
+}
+
+.database-actions {
+  display: flex;
+  gap: var(--spacing-sm);
+  flex-wrap: wrap;
+}
+
+.database-search {
+  margin-bottom: var(--spacing-lg);
+}
+
+.database-filters {
+  display: flex;
+  gap: var(--spacing-sm);
+  margin-bottom: var(--spacing-lg);
+  flex-wrap: wrap;
+}
+
+.songs-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: var(--spacing-md);
+}
+
+.song-card {
+  position: relative;
+}
+
+.song-card-actions {
+  display: flex;
+  gap: var(--spacing-sm);
+  margin-top: var(--spacing-md);
+}
+
+.song-info {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+}
+
+.song-title {
+  font-weight: var(--font-weight-semibold);
+  font-size: var(--font-size-lg);
+}
+
+.song-artist {
+  color: var(--color-text-secondary);
+}
+
+.song-meta {
+  display: flex;
+  gap: var(--spacing-sm);
+  flex-wrap: wrap;
+  margin-top: var(--spacing-sm);
+}
+
+/* ========== Game Setup Screen ========== */
+.game-setup-screen {
+  max-width: var(--max-width-md);
+  margin: 0 auto;
+  padding: var(--spacing-xl) 0;
+}
+
+.setup-section {
+  margin-bottom: var(--spacing-2xl);
+}
+
+.setup-section-title {
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-bold);
+  margin-bottom: var(--spacing-lg);
+}
+
+.team-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+.team-item {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  padding: var(--spacing-md);
+  background: var(--color-surface);
+  border-radius: var(--border-radius-md);
+  border-left: 4px solid var(--team-color, var(--color-primary));
+}
+
+.team-color-picker {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--border-radius-full);
+  border: none;
+  cursor: pointer;
+}
+
+.team-name-input {
+  flex: 1;
+}
+
+.team-remove-btn {
+  color: var(--color-error);
+}
+
+/* ========== Gameplay Screen ========== */
+.gameplay-screen {
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - var(--spacing-lg) * 2);
+  max-height: 900px;
+}
+
+.gameplay-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--spacing-lg);
+  flex-wrap: wrap;
+  gap: var(--spacing-md);
+}
+
+.gameplay-info {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-lg);
+}
+
+.current-team {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-bold);
+}
+
+.round-info {
+  color: var(--color-text-secondary);
+}
+
+.gameplay-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
+}
+
+.video-container {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+  background: var(--color-background);
+  border-radius: var(--border-radius-lg);
+  overflow: hidden;
+}
+
+.video-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.question-container {
+  background: var(--color-surface);
+  padding: var(--spacing-xl);
+  border-radius: var(--border-radius-lg);
+  text-align: center;
+}
+
+.question-text {
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-bold);
+  margin-bottom: var(--spacing-lg);
+}
+
+.answer-input {
+  max-width: 400px;
+  margin: 0 auto var(--spacing-lg);
+}
+
+.timer-display {
+  margin-bottom: var(--spacing-lg);
+}
+
+/* ========== Scoreboard Screen ========== */
+.scoreboard-screen {
+  max-width: var(--max-width-md);
+  margin: 0 auto;
+  padding: var(--spacing-xl) 0;
+}
+
+.scoreboard-header {
+  text-align: center;
+  margin-bottom: var(--spacing-2xl);
+}
+
+.scoreboard-list {
+  margin-bottom: var(--spacing-xl);
+}
+
+.scoreboard-footer {
+  text-align: center;
+}
+
+/* ========== Results Screen ========== */
+.results-screen {
+  max-width: var(--max-width-md);
+  margin: 0 auto;
+  padding: var(--spacing-xl) 0;
+  text-align: center;
+}
+
+.results-header {
+  margin-bottom: var(--spacing-2xl);
+}
+
+.winner-celebration {
+  font-size: var(--font-size-3xl);
+  margin-bottom: var(--spacing-lg);
+}
+
+.winner-name {
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-primary);
+  margin-bottom: var(--spacing-md);
+}
+
+.final-scoreboard {
+  margin-bottom: var(--spacing-xl);
+}
+
+.results-actions {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+/* ========== Settings Screen ========== */
+.settings-screen {
+  max-width: var(--max-width-md);
+  margin: 0 auto;
+  padding: var(--spacing-xl) 0;
+}
+
+.settings-section {
+  background: var(--color-surface);
+  padding: var(--spacing-lg);
+  border-radius: var(--border-radius-lg);
+  margin-bottom: var(--spacing-lg);
+}
+
+.settings-section-title {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-semibold);
+  margin-bottom: var(--spacing-lg);
+}
+
+.setting-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--spacing-md) 0;
+  border-bottom: 1px solid var(--color-surface-light);
+}
+
+.setting-item:last-child {
+  border-bottom: none;
+}
+
+.setting-label {
+  flex: 1;
+}
+
+.setting-control {
+  min-width: 200px;
+}
+
+/* ========== History Screen ========== */
+.history-screen {
+  padding: var(--spacing-xl) 0;
+}
+
+.history-header {
+  margin-bottom: var(--spacing-xl);
+}
+
+.history-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--spacing-md);
+  margin-bottom: var(--spacing-xl);
+}
+
+.stat-card {
+  text-align: center;
+  padding: var(--spacing-lg);
+}
+
+.stat-value {
+  font-size: var(--font-size-3xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-primary);
+  margin-bottom: var(--spacing-sm);
+}
+
+.stat-label {
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-sm);
+}
+
+.history-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+.history-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--spacing-lg);
+  background: var(--color-surface);
+  border-radius: var(--border-radius-md);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.history-item:hover {
+  transform: translateX(4px);
+  box-shadow: var(--shadow-lg);
+}
+
+.history-item-info {
+  flex: 1;
+}
+
+.history-item-date {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  margin-bottom: var(--spacing-xs);
+}
+
+.history-item-details {
+  display: flex;
+  gap: var(--spacing-lg);
+  flex-wrap: wrap;
+}

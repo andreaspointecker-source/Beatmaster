@@ -1,0 +1,588 @@
+/* BeatMaster - Components CSS */
+/* Wiederverwendbare UI-Komponenten */
+
+/* ========== Buttons ========== */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-md) var(--spacing-lg);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-semibold);
+  border-radius: var(--border-radius-md);
+  transition: all var(--transition-base);
+  cursor: pointer;
+  user-select: none;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Button Variants */
+.btn-primary {
+  background: var(--color-primary);
+  color: white;
+  box-shadow: var(--shadow-sm);
+}
+
+.btn-primary:hover:not(:disabled) {
+  background: var(--color-primary-light);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.btn-primary:active:not(:disabled) {
+  transform: translateY(0);
+  box-shadow: var(--shadow-sm);
+}
+
+.btn-secondary {
+  background: var(--color-secondary);
+  color: white;
+  box-shadow: var(--shadow-sm);
+}
+
+.btn-secondary:hover:not(:disabled) {
+  background: var(--color-secondary-light);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--color-text);
+  border: 2px solid var(--color-surface-light);
+}
+
+.btn-outline:hover:not(:disabled) {
+  background: var(--color-surface);
+  border-color: var(--color-primary);
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--color-text);
+}
+
+.btn-ghost:hover:not(:disabled) {
+  background: var(--color-surface);
+}
+
+.btn-success {
+  background: var(--color-success);
+  color: white;
+}
+
+.btn-success:hover:not(:disabled) {
+  background: var(--color-success-dark);
+  transform: translateY(-2px);
+}
+
+.btn-error {
+  background: var(--color-error);
+  color: white;
+}
+
+.btn-error:hover:not(:disabled) {
+  background: var(--color-error-dark);
+  transform: translateY(-2px);
+}
+
+/* Button Sizes */
+.btn-sm {
+  padding: var(--spacing-sm) var(--spacing-md);
+  font-size: var(--font-size-sm);
+}
+
+.btn-lg {
+  padding: var(--spacing-lg) var(--spacing-xl);
+  font-size: var(--font-size-lg);
+}
+
+.btn-xl {
+  padding: var(--spacing-xl) var(--spacing-2xl);
+  font-size: var(--font-size-xl);
+}
+
+.btn-full {
+  width: 100%;
+}
+
+.btn-icon {
+  padding: var(--spacing-md);
+  border-radius: var(--border-radius-full);
+}
+
+/* ========== Cards ========== */
+.card {
+  background: var(--color-surface);
+  border-radius: var(--border-radius-lg);
+  padding: var(--spacing-lg);
+  box-shadow: var(--shadow-md);
+  transition: all var(--transition-base);
+}
+
+.card:hover {
+  box-shadow: var(--shadow-lg);
+}
+
+.card-header {
+  margin-bottom: var(--spacing-md);
+  padding-bottom: var(--spacing-md);
+  border-bottom: 1px solid var(--color-surface-light);
+}
+
+.card-title {
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-bold);
+  margin: 0;
+}
+
+.card-subtitle {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  margin: var(--spacing-xs) 0 0 0;
+}
+
+.card-body {
+  margin-bottom: var(--spacing-md);
+}
+
+.card-footer {
+  margin-top: var(--spacing-md);
+  padding-top: var(--spacing-md);
+  border-top: 1px solid var(--color-surface-light);
+}
+
+.card-clickable {
+  cursor: pointer;
+}
+
+.card-clickable:hover {
+  transform: translateY(-4px);
+}
+
+/* ========== Forms ========== */
+.form-group {
+  margin-bottom: var(--spacing-lg);
+}
+
+.form-label {
+  display: block;
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-secondary);
+  margin-bottom: var(--spacing-sm);
+}
+
+.form-input,
+.form-textarea,
+.form-select {
+  width: 100%;
+  padding: var(--spacing-md);
+  background: var(--color-background);
+  color: var(--color-text);
+  border: 2px solid var(--color-surface);
+  border-radius: var(--border-radius-md);
+  font-size: var(--font-size-base);
+  transition: all var(--transition-fast);
+}
+
+.form-input:focus,
+.form-textarea:focus,
+.form-select:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(233, 69, 96, 0.1);
+}
+
+.form-input::placeholder,
+.form-textarea::placeholder {
+  color: var(--color-text-muted);
+}
+
+.form-textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+.form-select {
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23b3b3b3' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right var(--spacing-md) center;
+  background-size: 20px;
+  padding-right: var(--spacing-2xl);
+}
+
+.form-error {
+  font-size: var(--font-size-sm);
+  color: var(--color-error);
+  margin-top: var(--spacing-xs);
+}
+
+.form-help {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+  margin-top: var(--spacing-xs);
+}
+
+/* Checkbox & Radio */
+.form-checkbox,
+.form-radio {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  cursor: pointer;
+  user-select: none;
+}
+
+.form-checkbox input,
+.form-radio input {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+
+/* ========== Modals ========== */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: var(--z-modal);
+  animation: fadeIn var(--transition-base);
+  padding: var(--spacing-md);
+}
+
+.modal {
+  background: var(--color-surface);
+  border-radius: var(--border-radius-lg);
+  max-width: 500px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: var(--shadow-xl);
+  animation: slideInUp var(--transition-base);
+}
+
+.modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--spacing-lg);
+  border-bottom: 1px solid var(--color-surface-light);
+}
+
+.modal-title {
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-bold);
+  margin: 0;
+}
+
+.modal-close {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--border-radius-full);
+  color: var(--color-text-secondary);
+  transition: all var(--transition-fast);
+}
+
+.modal-close:hover {
+  background: var(--color-background);
+  color: var(--color-text);
+}
+
+.modal-body {
+  padding: var(--spacing-lg);
+}
+
+.modal-footer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: var(--spacing-md);
+  padding: var(--spacing-lg);
+  border-top: 1px solid var(--color-surface-light);
+}
+
+/* ========== Notifications/Toasts ========== */
+.notification-container {
+  position: fixed;
+  top: var(--spacing-lg);
+  right: var(--spacing-lg);
+  z-index: var(--z-notification);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+  max-width: 400px;
+}
+
+.notification {
+  background: var(--color-surface);
+  padding: var(--spacing-md) var(--spacing-lg);
+  border-radius: var(--border-radius-md);
+  box-shadow: var(--shadow-lg);
+  display: flex;
+  align-items: start;
+  gap: var(--spacing-md);
+  animation: slideInDown var(--transition-base);
+  border-left: 4px solid var(--color-info);
+}
+
+.notification-success {
+  border-left-color: var(--color-success);
+}
+
+.notification-error {
+  border-left-color: var(--color-error);
+}
+
+.notification-warning {
+  border-left-color: var(--color-warning);
+}
+
+.notification-info {
+  border-left-color: var(--color-info);
+}
+
+.notification-content {
+  flex: 1;
+}
+
+.notification-title {
+  font-weight: var(--font-weight-semibold);
+  margin-bottom: var(--spacing-xs);
+}
+
+.notification-message {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+}
+
+.notification-close {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--border-radius-full);
+  color: var(--color-text-muted);
+  transition: all var(--transition-fast);
+}
+
+.notification-close:hover {
+  background: var(--color-background);
+  color: var(--color-text);
+}
+
+/* ========== Progress Bar ========== */
+.progress {
+  width: 100%;
+  height: 8px;
+  background: var(--color-surface);
+  border-radius: var(--border-radius-full);
+  overflow: hidden;
+}
+
+.progress-bar {
+  height: 100%;
+  background: var(--color-primary);
+  border-radius: var(--border-radius-full);
+  transition: width var(--transition-base);
+}
+
+.progress-lg {
+  height: 12px;
+}
+
+.progress-sm {
+  height: 4px;
+}
+
+/* ========== Badges ========== */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-xs) var(--spacing-sm);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-semibold);
+  border-radius: var(--border-radius-full);
+  background: var(--color-surface-light);
+  color: var(--color-text);
+}
+
+.badge-primary {
+  background: var(--color-primary);
+  color: white;
+}
+
+.badge-success {
+  background: var(--color-success);
+  color: white;
+}
+
+.badge-error {
+  background: var(--color-error);
+  color: white;
+}
+
+.badge-warning {
+  background: var(--color-warning);
+  color: white;
+}
+
+/* ========== Divider ========== */
+.divider {
+  height: 1px;
+  background: var(--color-surface-light);
+  margin: var(--spacing-lg) 0;
+}
+
+/* ========== Empty State ========== */
+.empty-state {
+  text-align: center;
+  padding: var(--spacing-3xl) var(--spacing-lg);
+}
+
+.empty-state-icon {
+  font-size: var(--font-size-3xl);
+  color: var(--color-text-muted);
+  margin-bottom: var(--spacing-lg);
+}
+
+.empty-state-title {
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-bold);
+  margin-bottom: var(--spacing-sm);
+}
+
+.empty-state-message {
+  color: var(--color-text-secondary);
+  margin-bottom: var(--spacing-lg);
+}
+
+/* ========== List ========== */
+.list {
+  list-style: none;
+}
+
+.list-item {
+  padding: var(--spacing-md);
+  border-bottom: 1px solid var(--color-surface-light);
+  transition: background var(--transition-fast);
+}
+
+.list-item:last-child {
+  border-bottom: none;
+}
+
+.list-item:hover {
+  background: var(--color-surface);
+}
+
+.list-item-clickable {
+  cursor: pointer;
+}
+
+/* ========== Avatar ========== */
+.avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--border-radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-primary);
+  color: white;
+  font-weight: var(--font-weight-bold);
+  overflow: hidden;
+}
+
+.avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.avatar-sm {
+  width: 32px;
+  height: 32px;
+  font-size: var(--font-size-sm);
+}
+
+.avatar-lg {
+  width: 56px;
+  height: 56px;
+  font-size: var(--font-size-xl);
+}
+
+/* ========== Scoreboard Components ========== */
+.scoreboard-team {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  padding: var(--spacing-md);
+  margin-bottom: var(--spacing-sm);
+  background: var(--color-surface);
+  border-left: 4px solid var(--team-color, var(--color-primary));
+  border-radius: var(--border-radius-md);
+  transition: all var(--transition-fast);
+}
+
+.scoreboard-team:hover {
+  transform: translateX(4px);
+}
+
+.scoreboard-team-name {
+  flex: 1;
+  font-weight: var(--font-weight-semibold);
+}
+
+.scoreboard-team-score {
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-primary);
+}
+
+/* ========== Timer Display ========== */
+.timer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--font-size-3xl);
+  font-weight: var(--font-weight-bold);
+  font-variant-numeric: tabular-nums;
+  color: var(--color-primary);
+}
+
+.timer-warning {
+  color: var(--color-warning);
+  animation: pulse 1s ease-in-out infinite;
+}
+
+.timer-critical {
+  color: var(--color-error);
+  animation: pulse 0.5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}

@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="de"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>BeatMaster Settings</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#00d9ff",
+              "primary-dark": "#00b0d0",
+              "background-light": "#f5f8f8",
+              "background-dark": "#0f2023",
+              "surface-dark": "#162a2e",
+              "surface-light": "#ffffff",
+              "danger": "#FF3B30",
+            },
+            fontFamily: {
+              "display": ["Inter", "sans-serif"]
+            },
+            borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        /* Custom range slider styling for Webkit */
+        input[type=range] {
+            -webkit-appearance: none;
+            background: transparent;
+        }
+        input[type=range]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            height: 16px;
+            width: 16px;
+            border-radius: 50%;
+            background: #00d9ff;
+            cursor: pointer;
+            margin-top: -6px;
+            box-shadow: 0 0 4px rgba(0,0,0,0.3);
+        }
+        input[type=range]::-webkit-slider-runnable-track {
+            width: 100%;
+            height: 4px;
+            cursor: pointer;
+            background: #2e626b;
+            border-radius: 2px;
+        }
+        /* Focus styles */
+        input[type=range]:focus::-webkit-slider-runnable-track {
+            background: #3a7a85;
+        }
+        
+        /* Custom scrollbar for webkit to keep it clean */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-gray-900 dark:text-white antialiased selection:bg-primary selection:text-black">
+<div class="relative flex h-full min-h-screen w-full flex-col max-w-md mx-auto overflow-hidden bg-background-light dark:bg-background-dark shadow-2xl">
+<!-- Top App Bar -->
+<div class="sticky top-0 z-50 flex items-center bg-background-light/95 dark:bg-background-dark/95 backdrop-blur-md p-4 pb-2 justify-between border-b border-gray-200 dark:border-white/5">
+<div class="text-gray-900 dark:text-white flex size-12 shrink-0 items-center justify-start cursor-pointer transition-opacity hover:opacity-70">
+<span class="material-symbols-outlined text-3xl">chevron_left</span>
+</div>
+<h2 class="text-gray-900 dark:text-white text-lg font-bold leading-tight tracking-[-0.015em] flex-1 text-center pr-12">Einstellungen</h2>
+</div>
+<div class="flex-1 overflow-y-auto pb-8">
+<!-- SECTION: DARSTELLUNG -->
+<div class="flex flex-col">
+<h3 class="text-gray-500 dark:text-gray-400 text-xs font-bold tracking-widest px-6 pb-2 pt-6 uppercase">Darstellung</h3>
+<!-- Theme Segmented Control -->
+<div class="bg-surface-light dark:bg-surface-dark mx-4 rounded-xl p-4 mb-3 shadow-sm">
+<div class="flex">
+<div class="flex h-10 flex-1 items-center justify-center rounded-full bg-gray-100 dark:bg-[#20454b] p-1">
+<label class="flex cursor-pointer h-full grow items-center justify-center overflow-hidden rounded-full px-2 has-[:checked]:bg-white dark:has-[:checked]:bg-[#0f2124] has-[:checked]:shadow-sm text-gray-500 dark:text-[#8dc4ce] has-[:checked]:text-black dark:has-[:checked]:text-white text-sm font-medium transition-all">
+<span class="truncate">Auto</span>
+<input class="invisible w-0" name="theme" type="radio" value="Auto"/>
+</label>
+<label class="flex cursor-pointer h-full grow items-center justify-center overflow-hidden rounded-full px-2 has-[:checked]:bg-white dark:has-[:checked]:bg-[#0f2124] has-[:checked]:shadow-sm text-gray-500 dark:text-[#8dc4ce] has-[:checked]:text-black dark:has-[:checked]:text-white text-sm font-medium transition-all">
+<span class="truncate">Dunkel</span>
+<input checked="" class="invisible w-0" name="theme" type="radio" value="Dunkel"/>
+</label>
+<label class="flex cursor-pointer h-full grow items-center justify-center overflow-hidden rounded-full px-2 has-[:checked]:bg-white dark:has-[:checked]:bg-[#0f2124] has-[:checked]:shadow-sm text-gray-500 dark:text-[#8dc4ce] has-[:checked]:text-black dark:has-[:checked]:text-white text-sm font-medium transition-all">
+<span class="truncate">Hell</span>
+<input class="invisible w-0" name="theme" type="radio" value="Hell"/>
+</label>
+</div>
+</div>
+</div>
+<!-- Font Size Slider -->
+<div class="bg-surface-light dark:bg-surface-dark mx-4 rounded-xl p-4 shadow-sm flex flex-col gap-3">
+<div class="flex justify-between items-center mb-1">
+<span class="text-gray-900 dark:text-white font-medium">Schriftgröße</span>
+<span class="text-primary font-bold text-sm">100%</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-gray-400 dark:text-gray-500 text-sm">format_size</span>
+<input class="w-full h-1 bg-gray-200 dark:bg-[#2e626b] rounded-lg appearance-none cursor-pointer" max="100" min="1" type="range" value="50"/>
+<span class="material-symbols-outlined text-gray-400 dark:text-gray-500 text-lg">format_size</span>
+</div>
+</div>
+</div>
+<!-- SECTION: SPIEL-EINSTELLUNGEN -->
+<div class="flex flex-col mt-2">
+<h3 class="text-gray-500 dark:text-gray-400 text-xs font-bold tracking-widest px-6 pb-2 pt-6 uppercase">Spiel-Einstellungen</h3>
+<div class="bg-surface-light dark:bg-surface-dark mx-4 rounded-xl overflow-hidden shadow-sm divide-y divide-gray-100 dark:divide-white/5">
+<!-- Dropdown -->
+<div class="p-4 flex items-center justify-between cursor-pointer active:bg-gray-50 dark:active:bg-white/5 transition-colors group">
+<span class="text-gray-900 dark:text-white font-medium">Spielmodus</span>
+<div class="flex items-center gap-2 text-gray-500 dark:text-gray-400 group-hover:text-primary transition-colors">
+<span>Standard</span>
+<span class="material-symbols-outlined text-xl">unfold_more</span>
+</div>
+</div>
+<!-- Slider: Rounds -->
+<div class="p-4 flex flex-col gap-3">
+<div class="flex justify-between items-center">
+<span class="text-gray-900 dark:text-white font-medium">Runden</span>
+<span class="text-gray-500 dark:text-gray-400 text-sm bg-gray-100 dark:bg-white/10 px-2 py-0.5 rounded-md">5</span>
+</div>
+<input class="w-full h-1 bg-gray-200 dark:bg-[#2e626b] rounded-lg appearance-none cursor-pointer" max="10" min="1" type="range" value="5"/>
+</div>
+<!-- Slider: Songs -->
+<div class="p-4 flex flex-col gap-3">
+<div class="flex justify-between items-center">
+<span class="text-gray-900 dark:text-white font-medium">Songs pro Runde</span>
+<span class="text-gray-500 dark:text-gray-400 text-sm bg-gray-100 dark:bg-white/10 px-2 py-0.5 rounded-md">10</span>
+</div>
+<input class="w-full h-1 bg-gray-200 dark:bg-[#2e626b] rounded-lg appearance-none cursor-pointer" max="20" min="5" type="range" value="10"/>
+</div>
+<!-- Toggle: Bonus Points -->
+<div class="p-4 flex items-center justify-between">
+<div class="flex flex-col">
+<span class="text-gray-900 dark:text-white font-medium">Bonuspunkte</span>
+<span class="text-gray-500 dark:text-gray-500 text-xs">Punkte für schnelle Antworten</span>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox" value=""/>
+<div class="w-11 h-6 bg-gray-200 peer-focus:outline-none rounded-full peer dark:bg-[#2e626b] peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-primary"></div>
+</label>
+</div>
+</div>
+</div>
+<!-- SECTION: AUDIO -->
+<div class="flex flex-col mt-2">
+<h3 class="text-gray-500 dark:text-gray-400 text-xs font-bold tracking-widest px-6 pb-2 pt-6 uppercase">Audio</h3>
+<div class="bg-surface-light dark:bg-surface-dark mx-4 rounded-xl overflow-hidden shadow-sm divide-y divide-gray-100 dark:divide-white/5">
+<!-- Slider: Volume -->
+<div class="p-4 flex flex-col gap-3">
+<div class="flex justify-between items-center mb-1">
+<span class="text-gray-900 dark:text-white font-medium">Lautstärke</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-gray-400 dark:text-gray-500 text-lg">volume_mute</span>
+<input class="w-full h-1 bg-gray-200 dark:bg-[#2e626b] rounded-lg appearance-none cursor-pointer" max="100" min="0" type="range" value="80"/>
+<span class="material-symbols-outlined text-gray-400 dark:text-gray-500 text-lg">volume_up</span>
+</div>
+</div>
+<!-- Toggles -->
+<div class="p-4 flex items-center justify-between">
+<span class="text-gray-900 dark:text-white font-medium">Soundeffekte (SFX)</span>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox" value=""/>
+<div class="w-11 h-6 bg-gray-200 peer-focus:outline-none rounded-full peer dark:bg-[#2e626b] peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-primary"></div>
+</label>
+</div>
+<div class="p-4 flex items-center justify-between">
+<span class="text-gray-900 dark:text-white font-medium">Visualizer</span>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox" value=""/>
+<div class="w-11 h-6 bg-gray-200 peer-focus:outline-none rounded-full peer dark:bg-[#2e626b] peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-primary"></div>
+</label>
+</div>
+<div class="p-4 flex items-center justify-between">
+<span class="text-gray-900 dark:text-white font-medium">Vibration</span>
+<label class="relative inline-flex items-center cursor-pointer">
+<input class="sr-only peer" type="checkbox" value=""/>
+<div class="w-11 h-6 bg-gray-200 peer-focus:outline-none rounded-full peer dark:bg-[#2e626b] peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-primary"></div>
+</label>
+</div>
+</div>
+</div>
+<!-- SECTION: DATEN-VERWALTUNG -->
+<div class="flex flex-col mt-2">
+<h3 class="text-gray-500 dark:text-gray-400 text-xs font-bold tracking-widest px-6 pb-2 pt-6 uppercase">Daten-Verwaltung</h3>
+<div class="mx-4 flex flex-col gap-3">
+<div class="flex gap-3">
+<button class="flex-1 flex items-center justify-center gap-2 py-3 px-4 rounded-xl border border-gray-300 dark:border-white/10 text-gray-900 dark:text-white font-medium hover:bg-gray-100 dark:hover:bg-white/5 active:scale-[0.98] transition-all">
+<span class="material-symbols-outlined text-primary text-xl">cloud_upload</span>
+                        Backup
+                    </button>
+<button class="flex-1 flex items-center justify-center gap-2 py-3 px-4 rounded-xl border border-gray-300 dark:border-white/10 text-gray-900 dark:text-white font-medium hover:bg-gray-100 dark:hover:bg-white/5 active:scale-[0.98] transition-all">
+<span class="material-symbols-outlined text-primary text-xl">cloud_download</span>
+                        Restore
+                    </button>
+</div>
+<button class="w-full flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-danger/10 text-danger font-medium hover:bg-danger/20 active:scale-[0.98] transition-all mt-1">
+<span class="material-symbols-outlined text-xl">delete_forever</span>
+                    Alle Daten löschen
+                </button>
+</div>
+</div>
+<!-- SECTION: ÜBER BEATMASTER -->
+<div class="flex flex-col items-center mt-10 mb-6 gap-2 opacity-60">
+<div class="size-12 rounded-xl bg-gradient-to-br from-primary to-blue-600 flex items-center justify-center mb-2 shadow-lg" data-alt="BeatMaster App Logo gradient placeholder">
+<span class="material-symbols-outlined text-white text-2xl">music_note</span>
+</div>
+<p class="text-gray-500 dark:text-gray-400 text-sm font-medium">Version 2.4.0</p>
+<p class="text-gray-500 dark:text-gray-500 text-xs">© 2024 BeatMaster Inc.</p>
+<div class="flex gap-4 mt-1">
+<a class="text-primary text-xs font-medium hover:underline" href="#">Datenschutz</a>
+<span class="text-gray-600 dark:text-gray-600 text-xs">•</span>
+<a class="text-primary text-xs font-medium hover:underline" href="#">AGB</a>
+</div>
+</div>
+<!-- Bottom Spacer for safe area -->
+<div class="h-8"></div>
+</div>
+</div>
+</body></html>

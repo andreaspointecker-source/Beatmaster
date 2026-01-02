@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BeatMaster Test</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background: #0f2023;
+      color: white;
+    }
+    button {
+      padding: 10px 20px;
+      margin: 10px;
+      cursor: pointer;
+      background: #00d9ff;
+      color: #0f2023;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+    }
+    button:hover {
+      background: #00b8d9;
+    }
+    .error {
+      color: #ff6b6b;
+      background: #3a1515;
+      padding: 15px;
+      border-radius: 8px;
+      margin: 10px 0;
+    }
+    .success {
+      color: #4ecdc4;
+      background: #153a3a;
+      padding: 15px;
+      border-radius: 8px;
+      margin: 10px 0;
+    }
+    #results {
+      margin-top: 20px;
+      padding: 20px;
+      background: #162a2d;
+      border-radius: 8px;
+    }
+  </style>
+</head>
+<body>
+  <h1>🎵 BeatMaster - Funktionstest</h1>
+
+  <div>
+    <h2>1. Modul-Tests</h2>
+    <button onclick="testModules()">Module testen</button>
+  </div>
+
+  <div>
+    <h2>2. Storage-Tests</h2>
+    <button onclick="testStorage()">Storage testen</button>
+    <button onclick="addTestSong()">Test-Song hinzufügen</button>
+    <button onclick="showSongs()">Songs anzeigen</button>
+  </div>
+
+  <div>
+    <h2>3. Navigation-Tests</h2>
+    <button onclick="testNavigation()">Navigation testen</button>
+  </div>
+
+  <div id="results"></div>
+
+  <!-- Scripts -->
+  <script src="js/config.js"></script>
+  <script src="js/modules/utils.js"></script>
+  <script src="js/state.js"></script>
+  <script src="js/modules/storage.js"></script>
+
+  <script>
+    const results = document.getElementById('results');
+
+    function log(message, type = 'info') {
+      const div = document.createElement('div');
+      div.className = type;
+      div.textContent = message;
+      results.appendChild(div);
+      console.log(message);
+    }
+
+    function clear() {
+      results.innerHTML = '';
+    }
+
+    function testModules() {
+      clear();
+      log('=== Modul-Tests ===');
+
+      // CONFIG Test
+      try {
+        if (typeof CONFIG !== 'undefined') {
+          log('✅ CONFIG geladen: ' + CONFIG.APP.NAME, 'success');
+        } else {
+          log('❌ CONFIG nicht gefunden', 'error');
+        }
+      } catch(e) {
+        log('❌ CONFIG Fehler: ' + e.message, 'error');
+      }
+
+      // Utils Test
+      try {
+        if (typeof Utils !== 'undefined') {
+          const uuid = Utils.generateUUID();
+          log('✅ Utils geladen, UUID: ' + uuid, 'success');
+        } else {
+          log('❌ Utils nicht gefunden', 'error');
+        }
+      } catch(e) {
+        log('❌ Utils Fehler: ' + e.message, 'error');
+      }
+
+      // State Test
+      try {
+        if (typeof State !== 'undefined') {
+          State.set('test', 'hello');
+          const value = State.get('test');
+          log('✅ State geladen, Test-Wert: ' + value, 'success');
+        } else {
+          log('❌ State nicht gefunden', 'error');
+        }
+      } catch(e) {
+        log('❌ State Fehler: ' + e.message, 'error');
+      }
+
+      // Storage Test
+      try {
+        if (typeof Storage !== 'undefined') {
+          log('✅ Storage geladen', 'success');
+        } else {
+          log('❌ Storage nicht gefunden', 'error');
+        }
+      } catch(e) {
+        log('❌ Storage Fehler: ' + e.message, 'error');
+      }
+    }
+
+    function testStorage() {
+      clear();
+      log('=== Storage-Tests ===');
+
+      try {
+        // Test LocalStorage
+        localStorage.setItem('test', 'hello');
+        const test = localStorage.getItem('test');
+        log('✅ LocalStorage funktioniert: ' + test, 'success');
+        localStorage.removeItem('test');
+
+        // Test Storage.get/set
+        Storage.set('beatmaster_test', { value: 123 });
+        const data = Storage.get('beatmaster_test');
+        log('✅ Storage.get/set funktioniert: ' + JSON.stringify(data), 'success');
+        Storage.remove('beatmaster_test');
+
+        // Storage Größe
+        const size = Storage.getStorageSize();
+        log('📊 Storage-Größe: ' + size.totalKB + ' KB', 'success');
+
+      } catch(e) {
+        log('❌ Storage Fehler: ' + e.message, 'error');
+      }
+    }
+
+    function addTestSong() {
+      clear();
+      log('=== Test-Song hinzufügen ===');
+
+      try {
+        const songs = Storage.getSongs();
+        const newSong = {
+          id: Utils.generateUUID(),
+          title: 'Bohemian Rhapsody',
+          artist: 'Queen',
+          year: 1975,
+          genre: 'Rock',
+          youtubeId: 'fJ9rUzIMcZQ',
+          createdAt: new Date().toISOString()
+        };
+
+        songs.push(newSong);
+        const success = Storage.saveSongs(songs);
+
+        if (success) {
+          log('✅ Song hinzugefügt: ' + newSong.title, 'success');
+          log('   ID: ' + newSong.id);
+          log('   Anzahl Songs: ' + songs.length);
+        } else {
+          log('❌ Song konnte nicht gespeichert werden', 'error');
+        }
+      } catch(e) {
+        log('❌ Fehler beim Hinzufügen: ' + e.message, 'error');
+      }
+    }
+
+    function showSongs() {
+      clear();
+      log('=== Gespeicherte Songs ===');
+
+      try {
+        const songs = Storage.getSongs();
+        log('📊 Anzahl Songs: ' + songs.length, 'success');
+
+        if (songs.length === 0) {
+          log('ℹ️ Keine Songs vorhanden. Füge einen Test-Song hinzu!');
+        } else {
+          songs.forEach((song, index) => {
+            log(`${index + 1}. ${song.title} - ${song.artist} (${song.year})`, 'success');
+          });
+        }
+      } catch(e) {
+        log('❌ Fehler beim Laden: ' + e.message, 'error');
+      }
+    }
+
+    function testNavigation() {
+      clear();
+      log('=== Navigation-Test ===');
+      log('ℹ️ Öffne die Browser-Konsole für Details');
+      log('ℹ️ Gehe zurück zu index.html um die App zu testen');
+
+      // Zeige verfügbare Screens
+      log('📄 Verfügbare Screens:', 'success');
+      const screens = ['home', 'database', 'game-setup', 'gameplay', 'scoreboard', 'results', 'settings', 'history'];
+      screens.forEach(screen => {
+        log('  - ' + screen);
+      });
+
+      log('ℹ️ Teste Navigation in index.html mit: App.navigate("database")');
+    }
+
+    // Auto-Test beim Laden
+    window.addEventListener('load', () => {
+      log('🎵 BeatMaster Test-Seite geladen');
+      log('Klicke auf die Buttons um Tests auszuführen');
+    });
+  </script>
+</body>
+</html>

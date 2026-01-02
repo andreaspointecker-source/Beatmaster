@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="de" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BeatMaster - Playlist Test</title>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Material Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
+
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#00d9ff",
+            "background-dark": "#0f2023",
+            "surface-dark": "#162a2d",
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      font-family: system-ui, -apple-system, sans-serif;
+    }
+  </style>
+</head>
+<body class="bg-background-dark text-white">
+  <div class="max-w-6xl mx-auto p-8">
+    <div class="flex items-center justify-between mb-8">
+      <h1 class="text-4xl font-bold text-primary">Playlist Test</h1>
+      <button onclick="window.location.href='index.html'" class="bg-surface-dark px-4 py-2 rounded-lg hover:bg-white/10">
+        Zurück zur App
+      </button>
+    </div>
+
+    <!-- Controls -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
+      <!-- Load Songs -->
+      <div class="bg-surface-dark p-6 rounded-xl">
+        <h2 class="text-2xl font-bold mb-4">Songs laden</h2>
+        <button id="load-all" class="w-full bg-primary text-black font-bold py-3 px-6 rounded-lg hover:bg-primary/90 transition-all mb-2">
+          Alle Songs laden
+        </button>
+        <button id="load-verified" class="w-full bg-primary text-black font-bold py-3 px-6 rounded-lg hover:bg-primary/90 transition-all">
+          Nur geprüfte Songs
+        </button>
+        <p class="text-sm text-white/50 mt-2" id="song-count">Keine Songs geladen</p>
+      </div>
+
+      <!-- Playback Controls -->
+      <div class="bg-surface-dark p-6 rounded-xl">
+        <h2 class="text-2xl font-bold mb-4">Steuerung</h2>
+        <div class="flex gap-2 mb-4">
+          <button id="prev" class="flex-1 bg-white/10 font-bold py-3 px-6 rounded-lg hover:bg-white/20 transition-all" disabled>
+            ← Zurück
+          </button>
+          <button id="play-pause" class="flex-1 bg-green-600 text-white font-bold py-3 px-6 rounded-lg hover:bg-green-700 transition-all" disabled>
+            ▶ Play
+          </button>
+          <button id="next" class="flex-1 bg-white/10 font-bold py-3 px-6 rounded-lg hover:bg-white/20 transition-all" disabled>
+            Weiter →
+          </button>
+        </div>
+        <button id="stop" class="w-full bg-red-600 text-white font-bold py-2 px-4 rounded-lg hover:bg-red-700 transition-all" disabled>
+          ■ Stop
+        </button>
+      </div>
+    </div>
+
+    <!-- Current Song Info -->
+    <div class="bg-surface-dark p-6 rounded-xl mb-8">
+      <h2 class="text-xl font-bold mb-4">Aktueller Song</h2>
+      <div id="current-song" class="text-center py-8 text-white/50">
+        Kein Song ausgewählt
+      </div>
+    </div>
+
+    <!-- YouTube Player -->
+    <div class="bg-surface-dark p-6 rounded-xl mb-8">
+      <h2 class="text-xl font-bold mb-4">YouTube Player</h2>
+      <div id="youtube-player" class="aspect-video bg-black rounded-lg"></div>
+    </div>
+
+    <!-- Song List -->
+    <div class="bg-surface-dark p-6 rounded-xl">
+      <h2 class="text-xl font-bold mb-4">Playlist</h2>
+      <div id="playlist" class="space-y-2 max-h-96 overflow-y-auto">
+        <p class="text-white/50 text-center py-8">Keine Songs geladen</p>
+      </div>
+    </div>
+
+    <!-- Console Log -->
+    <div class="mt-8 bg-black/50 p-4 rounded-xl">
+      <h3 class="text-lg font-bold mb-2">Console</h3>
+      <div id="console-log" class="font-mono text-xs text-green-400 max-h-64 overflow-y-auto">
+        <div>Ready to test playlist...</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Load Modules -->
+  <script src="js/utils.js"></script>
+  <script src="js/storage.js"></script>
+  <script src="js/database.js"></script>
+  <script src="js/modules/youtube-player.js"></script>
+
+  <!-- Test Script -->
+  <script>
+    let songs = [];
+    let currentIndex = 0;
+    let isPlaying = false;
+    let playerReady = false;
+
+    const consoleLog = document.getElementById('console-log');
+
+    function log(message, type = 'info') {
+      const div = document.createElement('div');
+      const timestamp = new Date().toLocaleTimeString();
+      const color = type === 'error' ? 'text-red-400' : type === 'success' ? 'text-green-400' : 'text-blue-400';
+      div.className = color;
+      div.textContent = `[${timestamp}] ${message}`;
+      consoleLog.appendChild(div);
+      consoleLog.scrollTop = consoleLog.scrollHeight;
+    }
+
+    function updateUI() {
+      // Update buttons
+      document.getElementById('prev').disabled = currentIndex === 0;
+      document.getElementById('next').disabled = currentIndex >= songs.length - 1;
+      document.getElementById('play-pause').disabled = songs.length === 0 || !playerReady;
+      document.getElementById('stop').disabled = !isPlaying;
+
+      // Update current song display
+      if (songs.length > 0 && currentIndex < songs.length) {
+        const song = songs[currentIndex];
+        document.getElementById('current-song').innerHTML = `
+          <div class="space-y-2">
+            <div class="text-3xl font-bold text-white">${escapeHtml(song.title)}</div>
+            <div class="text-xl text-primary">${escapeHtml(song.artist)}</div>
+            <div class="text-sm text-white/60">${song.year} • ${escapeHtml(song.genre)}</div>
+            <div class="text-xs text-white/50 mt-4">
+              YouTube ID: ${song.youtubeId} | Start: ${song.startTime || 0}s |
+              ${song.verified ? '<span class="text-green-400">✓ Geprüft</span>' : '<span class="text-red-400">✗ Nicht geprüft</span>'}
+            </div>
+            <div class="text-lg font-bold text-white/80 mt-2">
+              Song ${currentIndex + 1} / ${songs.length}
+            </div>
+          </div>
+        `;
+      }
+
+      // Update playlist
+      const playlist = document.getElementById('playlist');
+      if (songs.length === 0) {
+        playlist.innerHTML = '<p class="text-white/50 text-center py-8">Keine Songs geladen</p>';
+      } else {
+        playlist.innerHTML = songs.map((song, index) => `
+          <div class="p-3 rounded-lg hover:bg-white/5 cursor-pointer transition-all ${index === currentIndex ? 'bg-primary/20 border border-primary/50' : 'bg-white/5'}" onclick="playSongAtIndex(${index})">
+            <div class="flex items-center justify-between">
+              <div class="flex-1">
+                <div class="font-bold ${index === currentIndex ? 'text-primary' : 'text-white'}">${index + 1}. ${escapeHtml(song.title)}</div>
+                <div class="text-sm text-white/60">${escapeHtml(song.artist)} • ${song.year}</div>
+              </div>
+              <div class="text-xs ${song.verified ? 'text-green-400' : 'text-red-400'}">
+                ${song.verified ? '✓' : '✗'}
+              </div>
+            </div>
+          </div>
+        `).join('');
+      }
+    }
+
+    function escapeHtml(text) {
+      const div = document.createElement('div');
+      div.textContent = text;
+      return div.innerHTML;
+    }
+
+    // Load Songs
+    document.getElementById('load-all').addEventListener('click', () => {
+      const allSongs = Storage.getSongs();
+      if (!allSongs || allSongs.length === 0) {
+        log('Keine Songs in der Datenbank gefunden!', 'error');
+        alert('Keine Songs gefunden! Bitte füge zuerst Songs in der Datenbank hinzu.');
+        return;
+      }
+
+      songs = allSongs;
+      currentIndex = 0;
+      log(`${songs.length} Songs geladen (alle)`, 'success');
+      document.getElementById('song-count').textContent = `${songs.length} Songs geladen`;
+      updateUI();
+    });
+
+    document.getElementById('load-verified').addEventListener('click', () => {
+      const allSongs = Storage.getSongs();
+      if (!allSongs || allSongs.length === 0) {
+        log('Keine Songs in der Datenbank gefunden!', 'error');
+        alert('Keine Songs gefunden! Bitte füge zuerst Songs in der Datenbank hinzu.');
+        return;
+      }
+
+      songs = allSongs.filter(song => song.verified === true);
+      currentIndex = 0;
+      log(`${songs.length} geprüfte Songs geladen (von ${allSongs.length} total)`, 'success');
+      document.getElementById('song-count').textContent = `${songs.length} geprüfte Songs geladen`;
+      updateUI();
+    });
+
+    // Playback Controls
+    async function playSongAtIndex(index) {
+      if (index < 0 || index >= songs.length) return;
+
+      currentIndex = index;
+      const song = songs[currentIndex];
+
+      log(`Lade Song: ${song.title} - ${song.artist}`);
+
+      try {
+        // Ensure YouTube player is initialized
+        if (!playerReady) {
+          await YouTubePlayer.init('youtube-player');
+          playerReady = true;
+          log('YouTube Player initialisiert', 'success');
+        }
+
+        const startTime = song.startTime || 0;
+        await YouTubePlayer.loadVideo(song.youtubeId, startTime);
+
+        // Small delay to ensure player is ready
+        await new Promise(resolve => setTimeout(resolve, 500));
+
+        YouTubePlayer.play();
+        isPlaying = true;
+        document.getElementById('play-pause').textContent = '⏸ Pause';
+
+        log(`▶ Spielt: ${song.title}`, 'success');
+      } catch (error) {
+        log(`Fehler beim Laden: ${error.message}`, 'error');
+        console.error('YouTube player error:', error);
+      }
+
+      updateUI();
+    }
+
+    document.getElementById('play-pause').addEventListener('click', () => {
+      if (!playerReady) return;
+
+      if (isPlaying) {
+        YouTubePlayer.pause();
+        isPlaying = false;
+        document.getElementById('play-pause').textContent = '▶ Play';
+        log('⏸ Pausiert');
+      } else {
+        if (currentIndex >= 0 && currentIndex < songs.length) {
+          playSongAtIndex(currentIndex);
+        }
+      }
+      updateUI();
+    });
+
+    document.getElementById('prev').addEventListener('click', () => {
+      if (currentIndex > 0) {
+        playSongAtIndex(currentIndex - 1);
+      }
+    });
+
+    document.getElementById('next').addEventListener('click', () => {
+      if (currentIndex < songs.length - 1) {
+        playSongAtIndex(currentIndex + 1);
+      }
+    });
+
+    document.getElementById('stop').addEventListener('click', () => {
+      if (playerReady) {
+        YouTubePlayer.stop();
+        isPlaying = false;
+        document.getElementById('play-pause').textContent = '▶ Play';
+        log('■ Gestoppt');
+        updateUI();
+      }
+    });
+
+    // Keyboard shortcuts
+    document.addEventListener('keydown', (e) => {
+      if (e.target.tagName === 'INPUT') return;
+
+      if (e.code === 'Space') {
+        e.preventDefault();
+        document.getElementById('play-pause').click();
+      } else if (e.code === 'ArrowLeft') {
+        e.preventDefault();
+        document.getElementById('prev').click();
+      } else if (e.code === 'ArrowRight') {
+        e.preventDefault();
+        document.getElementById('next').click();
+      }
+    });
+
+    // Initialize
+    log('Playlist Test bereit');
+    log('Tastenkürzel: Space = Play/Pause, ← = Zurück, → = Weiter');
+    updateUI();
+  </script>
+</body>
+</html>

@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>BeatMaster History</title>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#00d9ff",
+                        "background-light": "#f5f8f8",
+                        "background-dark": "#0f2023",
+                        "surface-dark": "#162e33", // Slightly lighter than bg-dark for cards
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        /* Custom Scrollbar for horizontal scrolling */
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display antialiased text-slate-900 dark:text-white pb-24">
+<!-- Top App Bar -->
+<div class="sticky top-0 z-50 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md border-b border-black/5 dark:border-white/5">
+<div class="flex items-center justify-between p-4 pb-3 pt-12 md:pt-4">
+<button class="p-2 rounded-full hover:bg-black/5 dark:hover:bg-white/10 transition-colors">
+<span class="material-symbols-outlined text-slate-900 dark:text-white">arrow_back</span>
+</button>
+<h2 class="text-lg font-bold leading-tight tracking-tight flex-1 text-center pr-10">Verlauf</h2>
+<!-- Filter button placeholder to balance header -->
+<!-- <button class="p-2 rounded-full hover:bg-black/5 dark:hover:bg-white/10 transition-colors">
+                <span class="material-symbols-outlined text-slate-900 dark:text-white">filter_list</span>
+            </button> -->
+</div>
+</div>
+<!-- Stats Section -->
+<div class="flex flex-col mt-4">
+<div class="flex items-center justify-between px-6 pb-4">
+<h3 class="text-xs font-bold tracking-widest text-slate-500 dark:text-slate-400 uppercase">Statistiken</h3>
+</div>
+<!-- Stats Cards (Horizontal Scroll) -->
+<div class="flex overflow-x-auto gap-4 px-6 pb-6 hide-scrollbar snap-x snap-mandatory">
+<!-- Card 1: Games -->
+<div class="snap-center flex min-w-[160px] flex-col justify-between gap-4 rounded-3xl p-5 bg-white dark:bg-surface-dark shadow-sm border border-slate-100 dark:border-white/5">
+<div class="flex items-start justify-between">
+<div class="p-2 rounded-full bg-primary/10 dark:bg-primary/20">
+<span class="material-symbols-outlined text-primary" style="font-size: 24px;">sports_esports</span>
+</div>
+</div>
+<div>
+<p class="text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">42</p>
+<p class="text-sm font-medium text-slate-500 dark:text-slate-400 mt-1">Gespielte Spiele</p>
+</div>
+</div>
+<!-- Card 2: Songs -->
+<div class="snap-center flex min-w-[160px] flex-col justify-between gap-4 rounded-3xl p-5 bg-white dark:bg-surface-dark shadow-sm border border-slate-100 dark:border-white/5">
+<div class="flex items-start justify-between">
+<div class="p-2 rounded-full bg-primary/10 dark:bg-primary/20">
+<span class="material-symbols-outlined text-primary" style="font-size: 24px;">music_note</span>
+</div>
+</div>
+<div>
+<p class="text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">350</p>
+<p class="text-sm font-medium text-slate-500 dark:text-slate-400 mt-1">Songs erraten</p>
+</div>
+</div>
+<!-- Card 3: Genre -->
+<div class="snap-center flex min-w-[160px] flex-col justify-between gap-4 rounded-3xl p-5 bg-white dark:bg-surface-dark shadow-sm border border-slate-100 dark:border-white/5">
+<div class="flex items-start justify-between">
+<div class="p-2 rounded-full bg-primary/10 dark:bg-primary/20">
+<span class="material-symbols-outlined text-primary" style="font-size: 24px;">equalizer</span>
+</div>
+</div>
+<div>
+<p class="text-2xl font-extrabold text-slate-900 dark:text-white tracking-tight leading-7 break-words">80s<br/>Rock</p>
+<p class="text-sm font-medium text-slate-500 dark:text-slate-400 mt-1">Lieblingsgenre</p>
+</div>
+</div>
+</div>
+</div>
+<!-- History List Section -->
+<div class="flex flex-col mt-2 px-4 md:px-6">
+<h3 class="text-xs font-bold tracking-widest text-slate-500 dark:text-slate-400 uppercase mb-4 px-2">Letzte Spiele</h3>
+<!-- Card 1 -->
+<div class="bg-white dark:bg-surface-dark rounded-[2rem] p-6 mb-4 shadow-sm border border-slate-100 dark:border-white/5">
+<!-- Header -->
+<div class="flex justify-between items-start mb-5">
+<div class="flex flex-col">
+<span class="text-lg font-bold text-slate-900 dark:text-white">12. Okt</span>
+<span class="text-sm text-slate-500 dark:text-slate-400 font-medium">20:30 Uhr</span>
+</div>
+<div class="px-3 py-1.5 rounded-full bg-primary/10 dark:bg-primary/20 border border-primary/20">
+<span class="text-xs font-bold text-primary uppercase tracking-wide">Party Modus</span>
+</div>
+</div>
+<!-- Leaderboard -->
+<div class="flex flex-col gap-3 mb-6">
+<!-- Rank 1 -->
+<div class="flex items-center justify-between p-2 rounded-xl bg-slate-50 dark:bg-black/20 -mx-2">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-surface-dark font-extrabold text-sm shadow-[0_0_10px_rgba(0,217,255,0.4)]">
+                            1
+                        </div>
+<span class="text-slate-900 dark:text-white font-semibold">Team Alpha</span>
+</div>
+<span class="text-primary font-bold font-mono text-lg">1200</span>
+</div>
+<!-- Rank 2 -->
+<div class="flex items-center justify-between px-2">
+<div class="flex items-center gap-3">
+<div class="w-6 h-6 rounded-full bg-slate-200 dark:bg-white/10 flex items-center justify-center text-slate-500 dark:text-slate-300 font-bold text-xs ml-1">
+                            2
+                        </div>
+<span class="text-slate-600 dark:text-slate-300 font-medium">Die Rocker</span>
+</div>
+<span class="text-slate-500 dark:text-slate-400 font-mono text-sm">950</span>
+</div>
+<!-- Rank 3 -->
+<div class="flex items-center justify-between px-2">
+<div class="flex items-center gap-3">
+<div class="w-6 h-6 rounded-full bg-slate-200 dark:bg-white/10 flex items-center justify-center text-slate-500 dark:text-slate-300 font-bold text-xs ml-1">
+                            3
+                        </div>
+<span class="text-slate-600 dark:text-slate-300 font-medium">Quiz Queens</span>
+</div>
+<span class="text-slate-500 dark:text-slate-400 font-mono text-sm">800</span>
+</div>
+</div>
+<!-- Footer Meta -->
+<div class="pt-4 border-t border-slate-100 dark:border-white/10 flex items-center gap-6">
+<div class="flex items-center gap-2 text-slate-500 dark:text-slate-400">
+<span class="material-symbols-outlined text-lg">refresh</span>
+<span class="text-xs font-medium uppercase tracking-wide">10 Runden</span>
+</div>
+<div class="flex items-center gap-2 text-slate-500 dark:text-slate-400">
+<span class="material-symbols-outlined text-lg">queue_music</span>
+<span class="text-xs font-medium uppercase tracking-wide">30 Songs</span>
+</div>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="bg-white dark:bg-surface-dark rounded-[2rem] p-6 mb-4 shadow-sm border border-slate-100 dark:border-white/5">
+<!-- Header -->
+<div class="flex justify-between items-start mb-5">
+<div class="flex flex-col">
+<span class="text-lg font-bold text-slate-900 dark:text-white">08. Okt</span>
+<span class="text-sm text-slate-500 dark:text-slate-400 font-medium">18:15 Uhr</span>
+</div>
+<div class="px-3 py-1.5 rounded-full bg-purple-500/10 dark:bg-purple-500/20 border border-purple-500/20">
+<span class="text-xs font-bold text-purple-600 dark:text-purple-400 uppercase tracking-wide">Profi Modus</span>
+</div>
+</div>
+<!-- Leaderboard -->
+<div class="flex flex-col gap-3 mb-6">
+<!-- Rank 1 -->
+<div class="flex items-center justify-between p-2 rounded-xl bg-slate-50 dark:bg-black/20 -mx-2">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-surface-dark font-extrabold text-sm shadow-[0_0_10px_rgba(0,217,255,0.4)]">
+                            1
+                        </div>
+<span class="text-slate-900 dark:text-white font-semibold">Beat Kings</span>
+</div>
+<span class="text-primary font-bold font-mono text-lg">2400</span>
+</div>
+<!-- Rank 2 -->
+<div class="flex items-center justify-between px-2">
+<div class="flex items-center gap-3">
+<div class="w-6 h-6 rounded-full bg-slate-200 dark:bg-white/10 flex items-center justify-center text-slate-500 dark:text-slate-300 font-bold text-xs ml-1">
+                            2
+                        </div>
+<span class="text-slate-600 dark:text-slate-300 font-medium">Sound Checkers</span>
+</div>
+<span class="text-slate-500 dark:text-slate-400 font-mono text-sm">2150</span>
+</div>
+<!-- Rank 3 -->
+<div class="flex items-center justify-between px-2">
+<div class="flex items-center gap-3">
+<div class="w-6 h-6 rounded-full bg-slate-200 dark:bg-white/10 flex items-center justify-center text-slate-500 dark:text-slate-300 font-bold text-xs ml-1">
+                            3
+                        </div>
+<span class="text-slate-600 dark:text-slate-300 font-medium">Vinyl Lovers</span>
+</div>
+<span class="text-slate-500 dark:text-slate-400 font-mono text-sm">1800</span>
+</div>
+</div>
+<!-- Footer Meta -->
+<div class="pt-4 border-t border-slate-100 dark:border-white/10 flex items-center gap-6">
+<div class="flex items-center gap-2 text-slate-500 dark:text-slate-400">
+<span class="material-symbols-outlined text-lg">refresh</span>
+<span class="text-xs font-medium uppercase tracking-wide">15 Runden</span>
+</div>
+<div class="flex items-center gap-2 text-slate-500 dark:text-slate-400">
+<span class="material-symbols-outlined text-lg">queue_music</span>
+<span class="text-xs font-medium uppercase tracking-wide">45 Songs</span>
+</div>
+</div>
+</div>
+<!-- Load More -->
+<div class="py-6 flex justify-center">
+<button class="px-8 py-3 rounded-full border border-primary/30 text-primary font-semibold text-sm hover:bg-primary/10 transition-colors active:scale-95">
+                Mehr laden
+            </button>
+</div>
+</div>
+<!-- Bottom Navigation -->
+<div class="fixed bottom-0 left-0 w-full bg-white/90 dark:bg-[#0f2023]/90 backdrop-blur-lg border-t border-slate-200 dark:border-white/5 pb-6 pt-3 px-6">
+<div class="flex justify-between items-center">
+<button class="flex flex-col items-center gap-1 opacity-50 hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-slate-900 dark:text-white">home</span>
+<span class="text-[10px] font-medium text-slate-900 dark:text-white">Home</span>
+</button>
+<button class="flex flex-col items-center gap-1 opacity-50 hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-slate-900 dark:text-white">stadia_controller</span>
+<span class="text-[10px] font-medium text-slate-900 dark:text-white">Spielen</span>
+</button>
+<button class="flex flex-col items-center gap-1 opacity-100 scale-110">
+<div class="absolute -inset-3 bg-primary/20 blur-xl rounded-full"></div>
+<span class="material-symbols-outlined text-primary relative z-10">history</span>
+<span class="text-[10px] font-bold text-primary relative z-10">Verlauf</span>
+</button>
+<button class="flex flex-col items-center gap-1 opacity-50 hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-slate-900 dark:text-white">person</span>
+<span class="text-[10px] font-medium text-slate-900 dark:text-white">Profil</span>
+</button>
+</div>
+</div>
+</body></html>

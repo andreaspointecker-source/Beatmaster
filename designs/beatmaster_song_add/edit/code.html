@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>BeatMaster Song Add/Edit</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#00d9ff",
+                        "background-light": "#f5f8f8",
+                        "background-dark": "#0f2023",
+                        "surface-dark": "#173136",
+                        "border-dark": "#2e626b",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        /* Custom scrollbar for better visual integration */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0f2023;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #2e626b;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #00d9ff;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-white min-h-screen flex flex-col antialiased selection:bg-primary/30 selection:text-white">
+<!-- Header -->
+<div class="sticky top-0 z-20 flex items-center bg-background-dark/95 backdrop-blur-md p-4 pb-2 justify-between border-b border-white/5">
+<button class="text-white flex size-12 shrink-0 items-center justify-center rounded-full active:bg-white/10 transition-colors group">
+<span class="material-symbols-outlined text-2xl group-hover:-translate-x-0.5 transition-transform">arrow_back_ios_new</span>
+</button>
+<h2 class="text-white text-lg font-bold leading-tight tracking-[-0.015em] flex-1 text-center pr-12">Song hinzufügen</h2>
+</div>
+<!-- Main Content -->
+<main class="flex-1 flex flex-col gap-6 p-4 pb-32 overflow-y-auto overflow-x-hidden">
+<!-- Youtube Section -->
+<div class="flex flex-col gap-3 group/yt">
+<label class="flex flex-col w-full">
+<p class="text-white/80 text-sm font-medium leading-normal pb-2 ml-1">YouTube Link</p>
+<div class="relative">
+<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-2xl text-white focus:outline-0 focus:ring-2 focus:ring-primary/50 border border-border-dark bg-surface-dark focus:border-primary h-14 placeholder:text-[#8dc4ce]/50 pl-4 pr-12 text-base font-normal leading-normal transition-all" placeholder="https://youtube.com/..." value=""/>
+<div class="absolute right-4 top-1/2 -translate-y-1/2 text-[#8dc4ce]">
+<span class="material-symbols-outlined">link</span>
+</div>
+</div>
+</label>
+<button class="flex w-full cursor-pointer items-center justify-center overflow-hidden rounded-full h-12 px-4 border border-primary/40 text-primary hover:bg-primary/10 active:bg-primary/20 gap-2 text-sm font-bold tracking-wide transition-all hover:border-primary hover:shadow-[0_0_15px_rgba(0,217,255,0.15)]">
+<span class="material-symbols-outlined text-xl">magic_button</span>
+<span class="truncate">Infos automatisch laden</span>
+</button>
+</div>
+<div class="h-px bg-white/5 w-full"></div>
+<!-- Core Metadata -->
+<div class="flex flex-col gap-4">
+<label class="flex flex-col w-full">
+<p class="text-white/80 text-sm font-medium leading-normal pb-2 ml-1">Titel <span class="text-primary">*</span></p>
+<input class="form-input w-full rounded-2xl text-white focus:ring-2 focus:ring-primary/50 border border-border-dark bg-surface-dark focus:border-primary h-14 placeholder:text-[#8dc4ce]/50 px-4 text-base transition-all" placeholder="Titel des Songs"/>
+</label>
+<label class="flex flex-col w-full">
+<p class="text-white/80 text-sm font-medium leading-normal pb-2 ml-1">Interpret <span class="text-primary">*</span></p>
+<input class="form-input w-full rounded-2xl text-white focus:ring-2 focus:ring-primary/50 border border-border-dark bg-surface-dark focus:border-primary h-14 placeholder:text-[#8dc4ce]/50 px-4 text-base transition-all" placeholder="Name des Interpreten"/>
+</label>
+<div class="flex gap-4">
+<label class="flex flex-col flex-[1.5]">
+<p class="text-white/80 text-sm font-medium leading-normal pb-2 ml-1">Album <span class="text-white/40 font-normal">(Optional)</span></p>
+<input class="form-input w-full rounded-2xl text-white focus:ring-2 focus:ring-primary/50 border border-border-dark bg-surface-dark focus:border-primary h-14 placeholder:text-[#8dc4ce]/50 px-4 text-base transition-all" placeholder="Album Name"/>
+</label>
+<div class="flex flex-col flex-1">
+<p class="text-white/80 text-sm font-medium leading-normal pb-2 ml-1 text-center">Jahr <span class="text-primary">*</span></p>
+<div class="flex items-center justify-between bg-surface-dark rounded-2xl border border-border-dark h-14 px-1 focus-within:ring-2 focus-within:ring-primary/50 focus-within:border-primary transition-all">
+<button class="size-10 flex items-center justify-center rounded-xl text-primary hover:bg-white/5 active:bg-white/10 transition-colors">
+<span class="material-symbols-outlined">remove</span>
+</button>
+<span class="text-white font-bold text-lg tabular-nums">2024</span>
+<button class="size-10 flex items-center justify-center rounded-xl text-primary hover:bg-white/5 active:bg-white/10 transition-colors">
+<span class="material-symbols-outlined">add</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<div class="h-px bg-white/5 w-full"></div>
+<!-- Genre & Difficulty -->
+<div class="flex flex-col gap-6">
+<label class="flex flex-col w-full">
+<p class="text-white/80 text-sm font-medium leading-normal pb-2 ml-1">Genre</p>
+<div class="relative">
+<select class="form-select w-full rounded-2xl text-white focus:ring-2 focus:ring-primary/50 border border-border-dark bg-surface-dark focus:border-primary h-14 px-4 text-base appearance-none transition-all cursor-pointer">
+<option>Pop</option>
+<option>Rock</option>
+<option>Hip Hop</option>
+<option>Electronic</option>
+<option>Schlager</option>
+<option>Indie</option>
+</select>
+<div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-primary">
+<span class="material-symbols-outlined">expand_more</span>
+</div>
+</div>
+</label>
+<div class="flex flex-col w-full">
+<p class="text-white/80 text-sm font-medium leading-normal pb-3 ml-1">Schwierigkeit</p>
+<div class="grid grid-cols-3 gap-1 bg-surface-dark p-1.5 rounded-full border border-border-dark">
+<!-- Option 1: Selected -->
+<label class="cursor-pointer relative z-0">
+<input checked="" class="peer sr-only" name="difficulty" type="radio"/>
+<div class="flex items-center justify-center h-10 rounded-full text-sm font-bold text-white/60 peer-checked:bg-primary peer-checked:text-background-dark peer-checked:shadow-[0_2px_10px_rgba(0,217,255,0.4)] transition-all">
+                            Leicht
+                        </div>
+</label>
+<!-- Option 2 -->
+<label class="cursor-pointer relative z-0">
+<input class="peer sr-only" name="difficulty" type="radio"/>
+<div class="flex items-center justify-center h-10 rounded-full text-sm font-bold text-white/60 peer-checked:bg-primary peer-checked:text-background-dark peer-checked:shadow-[0_2px_10px_rgba(0,217,255,0.4)] transition-all">
+                            Mittel
+                        </div>
+</label>
+<!-- Option 3 -->
+<label class="cursor-pointer relative z-0">
+<input class="peer sr-only" name="difficulty" type="radio"/>
+<div class="flex items-center justify-center h-10 rounded-full text-sm font-bold text-white/60 peer-checked:bg-primary peer-checked:text-background-dark peer-checked:shadow-[0_2px_10px_rgba(0,217,255,0.4)] transition-all">
+                            Schwer
+                        </div>
+</label>
+</div>
+</div>
+</div>
+<!-- Tags -->
+<div class="flex flex-col w-full">
+<p class="text-white/80 text-sm font-medium leading-normal pb-3 ml-1">Tags</p>
+<div class="flex flex-wrap gap-2">
+<div class="flex items-center gap-1.5 h-9 pl-3 pr-2 bg-surface-dark border border-border-dark rounded-full text-sm font-medium text-white shadow-sm hover:border-primary/50 transition-colors cursor-default">
+<span>90s Hits</span>
+<button class="text-white/50 hover:text-red-400 size-5 flex items-center justify-center rounded-full hover:bg-white/10 transition-colors">
+<span class="material-symbols-outlined text-base">close</span>
+</button>
+</div>
+<div class="flex items-center gap-1.5 h-9 pl-3 pr-2 bg-surface-dark border border-border-dark rounded-full text-sm font-medium text-white shadow-sm hover:border-primary/50 transition-colors cursor-default">
+<span>Party</span>
+<button class="text-white/50 hover:text-red-400 size-5 flex items-center justify-center rounded-full hover:bg-white/10 transition-colors">
+<span class="material-symbols-outlined text-base">close</span>
+</button>
+</div>
+<div class="flex items-center gap-1.5 h-9 pl-3 pr-2 bg-surface-dark border border-border-dark rounded-full text-sm font-medium text-white shadow-sm hover:border-primary/50 transition-colors cursor-default">
+<span>Sommer</span>
+<button class="text-white/50 hover:text-red-400 size-5 flex items-center justify-center rounded-full hover:bg-white/10 transition-colors">
+<span class="material-symbols-outlined text-base">close</span>
+</button>
+</div>
+<button class="flex items-center gap-1 h-9 px-3 bg-primary/5 border border-primary/30 border-dashed rounded-full text-sm font-bold text-primary active:bg-primary/20 hover:bg-primary/10 transition-colors">
+<span class="material-symbols-outlined text-base">add</span>
+                    Tag hinzufügen
+                </button>
+</div>
+</div>
+</main>
+<!-- Footer CTA -->
+<div class="fixed bottom-0 left-0 w-full p-4 bg-background-dark/80 backdrop-blur-xl border-t border-white/5 z-30">
+<button class="w-full h-14 bg-primary hover:bg-[#33e0ff] active:scale-[0.98] rounded-full flex items-center justify-center gap-2 shadow-[0_0_25px_rgba(0,217,255,0.25)] hover:shadow-[0_0_35px_rgba(0,217,255,0.4)] transition-all duration-300">
+<span class="material-symbols-outlined text-background-dark font-bold">save</span>
+<span class="text-background-dark text-base font-extrabold tracking-wide uppercase">Song Speichern</span>
+</button>
+</div>
+</body></html>
