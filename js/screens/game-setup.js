@@ -6,9 +6,16 @@ class GameSetupScreen {
     this.currentStep = 1; // Step 1-4
     this.totalSteps = 4;
     this.isQuickPlay = false; // Track if this is Quick Play mode
+    this.classicSettingsSnapshot = null;
 
     // Load previous settings or use defaults
     this.loadPreviousSettings();
+    this.isQuickPlay = this.mode === 'quick-play';
+    this.totalSteps = this.isQuickPlay ? 2 : 4;
+
+    if (this.isQuickPlay) {
+      this.configureQuickPlayDefaults();
+    }
   }
 
   loadPreviousSettings() {
@@ -172,14 +179,18 @@ class GameSetupScreen {
   render(container, params = {}) {
     this.container = container;
 
-    // Check if this is Quick Play mode (only configure once)
+    // Direct Quick Play entry (skip mode selection)
     if (params.quickPlay && !this.isQuickPlay) {
+      this.classicSettingsSnapshot = this.captureClassicSettings();
       this.isQuickPlay = true;
-      this.totalSteps = 1; // Only team setup for Quick Play
+      this.totalSteps = 2;
       this.configureQuickPlayDefaults();
+      if (this.currentStep === 1) {
+        this.currentStep = 2;
+      }
     }
 
-    const title = this.isQuickPlay ? 'Quick Play' : 'Neues Spiel';
+    const title = 'Neues Spiel';
 
     const html = `
       <div class="flex flex-col h-full min-h-screen w-full">
@@ -225,31 +236,19 @@ class GameSetupScreen {
   }
 
   renderCurrentStep() {
+    if (this.currentStep === 1) {
+      return this.renderStep1_GameMode();
+    }
+
     if (this.isQuickPlay) {
-      // Quick Play mode: only show teams selection
-      // We're at step 1, but we show the team selection UI
-      return `
-        <div class="max-w-2xl mx-auto">
-          <div class="text-center mb-8">
-            <h2 class="text-3xl font-black text-white mb-2">Spieler / Teams</h2>
-            <p class="text-white/60">Wähle die Spieler oder Teams für Quick Play</p>
-            <div class="mt-4 inline-flex items-center gap-2 px-4 py-2 bg-primary/10 border border-primary/30 rounded-full">
-              <span class="material-symbols-outlined text-primary text-[20px]">bolt</span>
-              <span class="text-sm text-primary font-semibold">5 Runden • 30s pro Song • Alle Fragen</span>
-            </div>
-          </div>
-          ${this.renderTeamsContent()}
-        </div>
-      `;
-    } else {
-      // Classic mode: show all 4 steps
-      switch (this.currentStep) {
-        case 1: return this.renderStep1_GameMode();
-        case 2: return this.renderStep2_Teams();
-        case 3: return this.renderStep3_RoundsAndQuestions();
-        case 4: return this.renderStep4_GenresAndSettings();
-        default: return '';
-      }
+      return this.renderStep2_Teams(true);
+    }
+
+    switch (this.currentStep) {
+      case 2: return this.renderStep2_Teams();
+      case 3: return this.renderStep3_RoundsAndQuestions();
+      case 4: return this.renderStep4_GenresAndSettings();
+      default: return '';
     }
   }
 
@@ -280,6 +279,27 @@ class GameSetupScreen {
               • Fragen zu Titel, Interpret, Jahr, Genre<br>
               • Zeitlimit pro Runde<br>
               • Punkte für richtige Antworten
+            </div>
+          </button>
+
+          <!-- Quick Play Mode -->
+          <button
+            class="p-6 rounded-xl border-2 ${this.mode === 'quick-play' ? 'bg-primary/10 border-primary' : 'bg-surface-dark border-white/10'} hover:bg-white/5 transition-all text-left"
+            data-action="select-mode"
+            data-mode="quick-play"
+          >
+            <div class="flex items-start justify-between mb-3">
+              <div class="flex-1">
+                <div class="text-2xl font-bold text-white mb-1">Quick Play</div>
+                <div class="text-sm text-white/60">Schnellstart mit festen Einstellungen</div>
+              </div>
+              ${this.mode === 'quick-play' ? '<span class="text-primary text-2xl">✓</span>' : ''}
+            </div>
+            <div class="text-xs text-white/50">
+              • 30s pro Song<br>
+              • 5 Runden<br>
+              • Alle Fragen, Genres & Dekaden<br>
+              • Nur geprüfte Songs
             </div>
           </button>
 
@@ -326,12 +346,18 @@ class GameSetupScreen {
   }
 
   // ==================== STEP 2: Teams ====================
-  renderStep2_Teams() {
+  renderStep2_Teams(isQuickPlay = false) {
     return `
       <div class="max-w-2xl mx-auto">
         <div class="text-center mb-8">
-          <h2 class="text-3xl font-black text-white mb-2">Teams erstellen</h2>
-          <p class="text-white/60">Füge Teams hinzu und passe sie an</p>
+          <h2 class="text-3xl font-black text-white mb-2">${isQuickPlay ? 'Spieler / Teams' : 'Teams erstellen'}</h2>
+          <p class="text-white/60">${isQuickPlay ? 'Wähle die Spieler oder Teams für Quick Play' : 'Füge Teams hinzu und passe sie an'}</p>
+          ${isQuickPlay ? `
+            <div class="mt-4 inline-flex items-center gap-2 px-4 py-2 bg-primary/10 border border-primary/30 rounded-full">
+              <span class="material-symbols-outlined text-primary text-[20px]">bolt</span>
+              <span class="text-sm text-primary font-semibold">5 Runden • 30s pro Song • Alle Fragen</span>
+            </div>
+          ` : ''}
         </div>
         ${this.renderTeamsContent()}
       </div>
@@ -369,7 +395,7 @@ class GameSetupScreen {
             type="text"
             value="${this.escapeHtml(team.name)}"
             placeholder="Team Name"
-            class="flex-1 bg-surface-dark-input text-white px-4 py-3 rounded-lg border border-white/10 focus:border-primary focus:outline-none"
+            class="flex-1 min-w-0 bg-surface-dark-input text-white px-4 py-3 rounded-lg border border-white/10 focus:border-primary focus:outline-none"
             data-action="team-name"
             data-team-id="${team.id}"
           />
@@ -378,7 +404,7 @@ class GameSetupScreen {
           <input
             type="color"
             value="${team.color}"
-            class="w-12 h-12 rounded-lg cursor-pointer"
+            class="w-12 h-12 rounded-lg cursor-pointer flex-shrink-0"
             data-action="team-color"
             data-team-id="${team.id}"
           />
@@ -602,25 +628,30 @@ class GameSetupScreen {
   }
 
   attachStepListeners() {
-    if (this.isQuickPlay) {
-      // Quick Play mode: always attach team listeners
-      this.attachStep2Listeners();
-    } else {
-      // Classic mode: attach listeners based on current step
-      switch (this.currentStep) {
-        case 1: this.attachStep1Listeners(); break;
-        case 2: this.attachStep2Listeners(); break;
-        case 3: this.attachStep3Listeners(); break;
-        case 4: this.attachStep4Listeners(); break;
-      }
+    switch (this.currentStep) {
+      case 1:
+        this.attachStep1Listeners();
+        break;
+      case 2:
+        this.attachStep2Listeners();
+        break;
+      case 3:
+        if (!this.isQuickPlay) {
+          this.attachStep3Listeners();
+        }
+        break;
+      case 4:
+        if (!this.isQuickPlay) {
+          this.attachStep4Listeners();
+        }
+        break;
     }
   }
 
   attachStep1Listeners() {
     this.container.querySelectorAll('[data-action="select-mode"]').forEach(btn => {
       btn.addEventListener('click', (e) => {
-        this.mode = e.currentTarget.dataset.mode;
-        this.updateUI();
+        this.applyMode(e.currentTarget.dataset.mode);
       });
     });
   }
@@ -759,7 +790,10 @@ class GameSetupScreen {
 
   validateCurrentStep() {
     if (this.isQuickPlay) {
-      // Quick Play mode: only validate teams (step 1)
+      if (this.currentStep === 1) {
+        return true;
+      }
+      // Quick Play mode: only validate teams (step 2)
       const emptyNames = this.teams.filter(t => !t.name.trim());
       if (emptyNames.length > 0) {
         App.showNotification('Alle Teams brauchen einen Namen!', 'error');
@@ -903,9 +937,7 @@ class GameSetupScreen {
   updateUI() {
     // Re-render current step without losing scroll position
     const scrollPos = this.container.querySelector('main')?.scrollTop || 0;
-    // Preserve Quick Play mode when re-rendering
-    const params = this.isQuickPlay ? { quickPlay: true } : {};
-    this.render(this.container, params);
+    this.render(this.container);
     if (this.container.querySelector('main')) {
       this.container.querySelector('main').scrollTop = scrollPos;
     }
@@ -1022,6 +1054,55 @@ class GameSetupScreen {
   generatePlaylist(filteredSongs) {
     const shuffled = [...filteredSongs].sort(() => Math.random() - 0.5);
     return shuffled.slice(0, this.rounds).map(s => s.id);
+  }
+
+  captureClassicSettings() {
+    return {
+      rounds: this.rounds,
+      questionTypes: [...this.questionTypes],
+      songDuration: this.songDuration,
+      onlyVerified: this.onlyVerified,
+      genreFilter: this.genreFilter.map(g => ({ ...g })),
+      decadeFilter: this.decadeFilter.map(d => ({ ...d })),
+      showAllGenres: this.showAllGenres
+    };
+  }
+
+  restoreClassicSettings(snapshot) {
+    if (!snapshot) {
+      return;
+    }
+    this.rounds = snapshot.rounds;
+    this.questionTypes = [...snapshot.questionTypes];
+    this.songDuration = snapshot.songDuration;
+    this.onlyVerified = snapshot.onlyVerified;
+    this.genreFilter = snapshot.genreFilter.map(g => ({ ...g }));
+    this.decadeFilter = snapshot.decadeFilter.map(d => ({ ...d }));
+    this.showAllGenres = snapshot.showAllGenres;
+  }
+
+  applyMode(mode) {
+    if (mode === this.mode) {
+      return;
+    }
+
+    if (mode === 'quick-play') {
+      this.classicSettingsSnapshot = this.captureClassicSettings();
+      this.isQuickPlay = true;
+      this.totalSteps = 2;
+      this.configureQuickPlayDefaults();
+      this.mode = 'quick-play';
+      this.updateUI();
+      return;
+    }
+
+    if (mode === 'classic') {
+      this.isQuickPlay = false;
+      this.totalSteps = 4;
+      this.mode = 'classic';
+      this.restoreClassicSettings(this.classicSettingsSnapshot);
+      this.updateUI();
+    }
   }
 
   escapeHtml(text) {

@@ -90,6 +90,13 @@ const YouTubePlayer = {
             onReady: () => {
               console.log('YouTube player onReady event fired');
               this._isReady = true;
+              try {
+                if (this._player && this._player.setPlaybackQuality) {
+                  this._player.setPlaybackQuality('small');
+                }
+              } catch (e) {
+                console.warn('Failed to set playback quality:', e);
+              }
               resolve();
             },
             onError: (event) => {
@@ -135,6 +142,13 @@ const YouTubePlayer = {
           videoId,
           startSeconds: startTime
         });
+        try {
+          if (this._player && this._player.setPlaybackQuality) {
+            this._player.setPlaybackQuality('small');
+          }
+        } catch (e) {
+          console.warn('Failed to set playback quality:', e);
+        }
 
         // Wait for video to be cued/loaded
         const checkLoaded = setInterval(() => {
@@ -156,6 +170,37 @@ const YouTubePlayer = {
       } catch (error) {
         reject(error);
       }
+    });
+  },
+
+  async waitForState(targetStates = [1], timeoutMs = 8000) {
+    if (!this._isReady || !this._player || !this._player.getPlayerState) {
+      await this._initPromise;
+    }
+
+    return new Promise(resolve => {
+      const deadline = Date.now() + timeoutMs;
+      const poll = () => {
+        if (!this._player || !this._player.getPlayerState) {
+          resolve(false);
+          return;
+        }
+
+        const state = this._player.getPlayerState();
+        if (targetStates.includes(state)) {
+          resolve(true);
+          return;
+        }
+
+        if (Date.now() >= deadline) {
+          resolve(false);
+          return;
+        }
+
+        setTimeout(poll, 100);
+      };
+
+      poll();
     });
   },
 

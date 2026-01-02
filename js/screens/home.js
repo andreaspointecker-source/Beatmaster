@@ -74,6 +74,9 @@ class HomeScreen {
           <p class="text-white/30 text-[10px] md:text-xs font-medium tracking-widest uppercase font-mono">
             v${CONFIG.APP.VERSION}
           </p>
+          <p class="text-white/30 text-[10px] md:text-xs font-medium tracking-widest uppercase font-mono mt-1">
+            Produced by Candy
+          </p>
         </div>
       </div>
     `;

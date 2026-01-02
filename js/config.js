@@ -4,7 +4,7 @@
 const CONFIG = {
   APP: {
     NAME: 'BeatMaster',
-    VERSION: '1.0.0',
+    VERSION: '0.2.0',
     STORAGE_PREFIX: 'beatmaster_'
   },
 
@@ -93,6 +93,7 @@ const CONFIG = {
     PLAYER_VARS: {
       autoplay: 1,
       controls: 1,
+      playsinline: 1,
       modestbranding: 1,
       rel: 0,
       showinfo: 0

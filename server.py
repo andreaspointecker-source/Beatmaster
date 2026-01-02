@@ -289,7 +289,7 @@ class BeatMasterHandler(SimpleHTTPRequestHandler):
 def main():
     server = ThreadingHTTPServer(("0.0.0.0", 8888), BeatMasterHandler)
     print("Server gestartet auf Port 8888")
-    print("Oeffne im Browser: http://localhost:8888")
+    print("?ffne im Browser: http://localhost:8888")
     server.serve_forever()
 
 

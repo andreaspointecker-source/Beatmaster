@@ -5,6 +5,7 @@ const SoundPlayer = {
   sounds: {},
   volume: 1.0,
   muted: false,
+  unlocked: false,
 
   /**
    * Preloads a sound
@@ -47,6 +48,44 @@ const SoundPlayer = {
     } catch (error) {
       console.warn('Sound playback error:', error);
     }
+  },
+
+  /**
+   * Unlocks audio playback on mobile browsers after user gesture
+   */
+  unlock() {
+    if (this.unlocked) return;
+    const sound = Object.values(this.sounds)[0];
+    if (!sound) return;
+
+    const previousVolume = sound.volume;
+    sound.volume = 0;
+    sound.play().then(() => {
+      sound.pause();
+      sound.currentTime = 0;
+      sound.volume = previousVolume;
+      this.unlocked = true;
+    }).catch(() => {
+      sound.volume = previousVolume;
+    });
+  },
+
+  /**
+   * Installs a one-time gesture listener to unlock audio
+   */
+  enableUnlockOnFirstGesture() {
+    if (this.unlocked || typeof window === 'undefined') return;
+
+    const handler = () => {
+      this.unlock();
+      window.removeEventListener('pointerdown', handler);
+      window.removeEventListener('touchstart', handler);
+      window.removeEventListener('keydown', handler);
+    };
+
+    window.addEventListener('pointerdown', handler, { once: true });
+    window.addEventListener('touchstart', handler, { once: true });
+    window.addEventListener('keydown', handler, { once: true });
   },
 
   /**
@@ -115,6 +154,7 @@ if (typeof window !== 'undefined') {
   SoundPlayer.load('finalBeep', '/assets/sounds/final-beep.mp3');
   SoundPlayer.load('sieg', '/assets/sounds/sieg.mp3');
   SoundPlayer.load('cardMix', '/assets/sounds/card-mix.mp3');
+  SoundPlayer.enableUnlockOnFirstGesture();
 }
 
 // Export to global scope
