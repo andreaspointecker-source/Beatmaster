@@ -1,129 +1,50 @@
-# 🎵 BeatMaster - Musikquiz PWA
+# Welcome to your Expo app 👋
 
-Das ultimative Party-Musikquiz als Progressive Web App!
+This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
 
-## 🚀 Features
+## Get started
 
-- **Musikquiz-Spiel**: Identifiziere Songs von YouTube
-- **Team-Modus**: Spiele mit bis zu 10 Teams gleichzeitig
-- **Verschiedene Fragetypen**: Song-Titel, Interpret, Jahr, Genre, Dekade
-- **Song-Datenbank**: Verwalte deine eigene Song-Sammlung
-- **PWA**: Installierbar auf Mobilgeräten
-- **Offline-Fähig**: UI funktioniert offline (YouTube benötigt Internet)
-- **Responsive**: Funktioniert auf Handy, Tablet und Desktop
+1. Install dependencies
 
-## 📋 Entwicklungsstand
+   ```bash
+   npm install
+   ```
 
-### ✅ Phase 1: Fundament (FERTIG)
-- Komplette Dateistruktur
-- State Management (Observable Pattern)
-- LocalStorage-Abstraktion
-- SPA-Router (Hash-basiert)
-- CSS-Framework mit Dark Theme
-- Utility-Funktionen
-- Home-Screen
+2. Start the app
 
-### 🔄 Phase 2: Song-Datenbank (In Planung)
-- Song-Verwaltung (CRUD)
-- Such- und Filterfunktionen
-- JSON Import/Export
-- YouTube-ID-Extraktion
+   ```bash
+   npx expo start
+   ```
 
-### ⏳ Phase 3-7: Folgt in den nächsten Wochen
+In the output, you'll find options to open the app in a
 
-## 🛠️ Tech-Stack
+- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
+- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
+- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
+- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
 
-- **Vanilla JavaScript** (ES6+) - Kein Framework
-- **CSS Custom Properties** - Dark Theme
-- **LocalStorage** - Daten-Persistierung
-- **YouTube IFrame API** - Musikwiedergabe
-- **Service Worker** - PWA & Offline-Support
+You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
 
-## 📦 Installation (Entwicklung)
+## Get a fresh project
 
-1. Repository klonen
-2. Webserver starten (z.B. `python -m http.server 8080`)
-3. Browser öffnen: `http://localhost:8080`
-
-## 🐳 Deployment (Unraid)
+When you're ready, run:
 
 ```bash
-# 1. Ordner erstellen
-mkdir -p /mnt/user/appdata/beatmaster/www
-
-# 2. Dateien kopieren
-cp -r * /mnt/user/appdata/beatmaster/www/
-
-# 3. Docker Container starten
-docker run -d \
-  --name beatmaster \
-  -p 8080:80 \
-  -v /mnt/user/appdata/beatmaster/www:/usr/share/nginx/html:ro \
-  --restart unless-stopped \
-  nginx:alpine
-
-# 4. Zugriff
-# http://unraid-ip:8080
+npm run reset-project
 ```
 
-## 📁 Projektstruktur
+This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
 
-```
-BeatMaster/
-├── index.html           # Haupteinstiegspunkt
-├── manifest.json        # PWA Manifest
-├── css/                 # Stylesheets
-├── js/
-│   ├── app.js          # App-Initialisierung & Router
-│   ├── state.js        # State Management
-│   ├── config.js       # Konfiguration
-│   ├── modules/        # Kern-Module
-│   └── screens/        # Screen-Controller
-├── data/               # Song-Datenbank
-└── assets/             # Icons, Sounds, Bilder
-```
+## Learn more
 
-## 🎮 Nutzung
+To learn more about developing your project with Expo, look at the following resources:
 
-1. **Songs hinzufügen**: Navigiere zur Song-Datenbank
-2. **Spiel konfigurieren**: Wähle Spielmodus, Teams, Runden
-3. **Spielen**: Beantworte Fragen zu den abgespielten Songs
-4. **Gewinnen**: Team mit den meisten Punkten gewinnt!
+- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
+- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
 
-## 🔧 Konfiguration
+## Join the community
 
-Alle Einstellungen in `js/config.js`:
-- Spielmodi
-- Fragentypen
-- Punktevergabe
-- UI-Einstellungen
+Join our community of developers creating universal apps.
 
-## 📱 PWA Installation
-
-### Android (Chrome):
-1. App öffnen
-2. Menü (⋮) → "App installieren"
-3. App erscheint auf Homescreen
-
-### iOS (Safari):
-1. App öffnen
-2. Teilen-Button
-3. "Zum Home-Bildschirm"
-
-## 🤝 Beitragen
-
-Dies ist ein persönliches Projekt. Feedback und Ideen willkommen!
-
-## 📄 Lizenz
-
-MIT License - Freie Nutzung für private Zwecke
-
-## 🎉 Credits
-
-Entwickelt mit Claude Code und viel Liebe zur Musik!
-
----
-
-**Version:** 1.0.0
-**Status:** In Entwicklung (Phase 1 abgeschlossen)
-**Letzte Aktualisierung:** 2026-01-01
+- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
+- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.

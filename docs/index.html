@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BeatMaster - Music Quiz Game</title>
+    <meta name="description" content="Mobile App (Android) - Music Quiz Game using Apple Music API for previews and driving traffic/subscriptions to Apple Music.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #0b0e14;
+            --surface-color: #151a25;
+            --primary-accent: #FF8C00;
+            --text-main: #FFFFFF;
+            --text-secondary: #9da3b4;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        header {
+            padding: 40px 20px;
+            text-align: center;
+            background: linear-gradient(180deg, rgba(255,140,0,0.15) 0%, rgba(11,14,20,1) 100%);
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            font-weight: 900;
+            color: var(--primary-accent);
+            margin-bottom: 20px;
+            text-shadow: 0 4px 20px rgba(255, 140, 0, 0.3);
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            font-weight: 400;
+            max-width: 800px;
+            margin: 0 auto 30px auto;
+        }
+
+        .apple-notice {
+            background-color: var(--surface-color);
+            padding: 20px 30px;
+            border-left: 4px solid var(--primary-accent);
+            border-radius: 8px;
+            max-width: 800px;
+            margin: 0 auto 50px auto;
+            text-align: left;
+            font-size: 1.1rem;
+        }
+
+        .apple-notice strong {
+            color: var(--primary-accent);
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .features {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .features h2 {
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            font-weight: 600;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 40px;
+            padding: 20px;
+        }
+
+        .screenshot-card {
+            background-color: var(--surface-color);
+            border-radius: 20px;
+            padding: 20px;
+            text-align: center;
+            border: 1px solid rgba(255,140,0,0.2);
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        .screenshot-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--primary-accent);
+        }
+
+        .screenshot-card img {
+            width: 100%;
+            border-radius: 12px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+            margin-bottom: 20px;
+        }
+
+        .screenshot-card h3 {
+            font-size: 1.3rem;
+            color: var(--text-main);
+            margin-bottom: 10px;
+        }
+
+        .screenshot-card p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            border-top: 1px solid rgba(255,140,0,0.2);
+            color: var(--text-secondary);
+            margin-top: 60px;
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 2.5rem; }
+            .subtitle { font-size: 1rem; }
+            .apple-notice { padding: 15px; font-size: 1rem; margin: 0 20px 40px 20px; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>BeatMaster</h1>
+    <p class="subtitle">The ultimate multiplayer music quiz game testing your knowledge across decades and genres.</p>
+    
+    <div class="apple-notice">
+        <strong>Application Reference:</strong>
+        Mobile App (Android) - Music Quiz Game using Apple Music API for previews and driving traffic/subscriptions to Apple Music.
+    </div>
+</header>
+
+<div class="container">
+    <section class="features">
+        <h2>How It Works</h2>
+        <div class="gallery">
+            <div class="screenshot-card">
+                <img src="assets/screen1.png" alt="Quiz Setup">
+                <h3>Choose your Challenge</h3>
+                <p>Filter by genres, decades, or origin to match your music taste.</p>
+            </div>
+            
+            <div class="screenshot-card">
+                <img src="assets/screen2.png" alt="Multiplayer Lobby">
+                <h3>Play with Friends</h3>
+                <p>Connect with a room code or host a live hotseat multiplayer session directly on your phone.</p>
+            </div>
+            
+            <div class="screenshot-card">
+                <img src="assets/screen3.png" alt="Active Question">
+                <h3>Guess the Track</h3>
+                <p>Listen to a 30-second Apple Music preview and guess the Title, Artist, or Year!</p>
+            </div>
+            
+            <div class="screenshot-card">
+                <img src="assets/screen4.png" alt="Resolution Screen">
+                <h3>Discover & Stream</h3>
+                <p>Learn the facts, view high-quality covers, and directly open the song on Apple Music to stream it fully!</p>
+            </div>
+        </div>
+    </section>
+</div>
+
+<footer>
+    <p>&copy; 2026 BeatMaster. Powered by Apple Music API.</p>
+</footer>
+
+</body>
+</html>
